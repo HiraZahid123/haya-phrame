@@ -20,7 +20,7 @@ $pageTitle = 'العراق في كأس العالم 2026 | صيدلية حيا';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=<?= filemtime('style.css') ?>">
 </head>
 <body>
 
@@ -280,6 +280,6 @@ $pageTitle = 'العراق في كأس العالم 2026 | صيدلية حيا';
     </div>
 
     <!-- App JS -->
-    <script src="app.js"></script>
+    <script src="app.js?v=<?= filemtime('app.js') ?>"></script>
 </body>
 </html>
