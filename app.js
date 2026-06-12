@@ -513,19 +513,23 @@
     }
 
     /* ── Shape Toggle ───────────────────────────────────────── */
-    btnCircle.addEventListener('click', () => {
-        currentShape = 'circle';
-        btnCircle.classList.add('active');
-        btnSquare.classList.remove('active');
-        renderComposite();
-    });
+    if (btnCircle) {
+        btnCircle.addEventListener('click', () => {
+            currentShape = 'circle';
+            btnCircle.classList.add('active');
+            if (btnSquare) btnSquare.classList.remove('active');
+            renderComposite();
+        });
+    }
 
-    btnSquare.addEventListener('click', () => {
-        currentShape = 'square';
-        btnSquare.classList.add('active');
-        btnCircle.classList.remove('active');
-        renderComposite();
-    });
+    if (btnSquare) {
+        btnSquare.addEventListener('click', () => {
+            currentShape = 'square';
+            btnSquare.classList.add('active');
+            if (btnCircle) btnCircle.classList.remove('active');
+            renderComposite();
+        });
+    }
 
     /* ── Download ───────────────────────────────────────────── */
     if (btnDownload) btnDownload.addEventListener('click', () => {
@@ -555,8 +559,8 @@
         if (zoomSlider) zoomSlider.value = 1.0;
 
         currentShape = 'circle';
-        btnCircle.classList.add('active');
-        btnSquare.classList.remove('active');
+        if (btnCircle) btnCircle.classList.add('active');
+        if (btnSquare) btnSquare.classList.remove('active');
 
         const ctx = previewCanvas.getContext('2d');
         ctx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);

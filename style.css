@@ -874,6 +874,7 @@ a { text-decoration: none; color: inherit; }
     display: flex;
     flex-direction: column;
     gap: 0.1rem;
+    text-align: left;
 }
 
 .apply-frame-text strong {
@@ -1295,6 +1296,23 @@ a { text-decoration: none; color: inherit; }
    RESPONSIVE
    ══════════════════════════════════════════════════════════ */
 @media (max-width: 480px) {
+    .hero-title-section {
+        padding: 1rem 0.5rem;
+    }
+
+    .hero-main-title {
+        font-size: clamp(0.85rem, 4.2vw, 1.25rem);
+        white-space: nowrap;
+    }
+
+    .hero-stars-row {
+        gap: 0.4rem;
+    }
+
+    .hero-stars-row .fa-star {
+        font-size: 0.75rem;
+    }
+
     .header-left-group {
         display: block; /* Visible on mobile */
     }

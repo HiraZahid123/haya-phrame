@@ -130,36 +130,7 @@ $pageTitle = 'العراق في كأس العالم 2026 | صيدلية حيا';
                 </div>
             </div>
 
-            <!-- Frame Toggle Options -->
-            <div class="frame-options-row">
-                <div class="frame-options-label-text">شكل الإطار:</div>
-                <div class="frame-toggle-group">
-                    <button class="frame-toggle active" id="btnCircle" data-shape="circle">
-                        <i class="fas fa-circle"></i>
-                        دائري
-                    </button>
-                    <button class="frame-toggle" id="btnSquare" data-shape="square">
-                        <i class="fas fa-square"></i>
-                        مربع
-                    </button>
-                </div>
-            </div>
 
-            <!-- Zoom Control -->
-            <div class="zoom-row">
-                <div class="zoom-label-text">حجم الصورة (اسحب للتحريك والزوم):</div>
-                <div class="zoom-slider-wrap">
-                    <i class="fas fa-search-minus"></i>
-                    <input type="range" id="zoomSlider" min="1" max="4" step="0.02" value="1" class="zoom-slider">
-                    <i class="fas fa-search-plus"></i>
-                </div>
-            </div>
-
-            <!-- New Photo Button inside preview -->
-            <button class="new-photo-btn" id="btnReset">
-                <i class="fas fa-redo"></i>
-                صورة جديدة
-            </button>
         </section>
 
         <!-- Step 1: Upload / Camera (hero style) -->
@@ -189,18 +160,6 @@ $pageTitle = 'العراق في كأس العالم 2026 | صيدلية حيا';
 
         <!-- Upload + Camera Buttons (always visible) -->
         <div class="upload-row-btns" id="uploadRowBtns">
-            <!-- Upload Image -->
-            <label for="fileGallery" class="upload-card-btn" id="btnGallery">
-                <div class="upload-card-icon green-icon">
-                    <i class="fas fa-upload"></i>
-                </div>
-                <div class="upload-card-text">
-                    <strong>Upload Image</strong>
-                    <span>Choose from your gallery</span>
-                </div>
-                <input type="file" id="fileGallery" accept="image/*" class="file-input-hidden">
-            </label>
-
             <!-- Take Photo -->
             <label for="fileCamera" class="upload-card-btn" id="btnCamera">
                 <div class="upload-card-icon red-icon">
@@ -212,13 +171,31 @@ $pageTitle = 'العراق في كأس العالم 2026 | صيدلية حيا';
                 </div>
                 <input type="file" id="fileCamera" accept="image/*" capture="user" class="file-input-hidden">
             </label>
+
+            <!-- Upload Image -->
+            <label for="fileGallery" class="upload-card-btn" id="btnGallery">
+                <div class="upload-card-icon green-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M 19.35 10.04 C 18.67 6.59 15.64 4 12 4 C 9.11 4 6.6 5.64 5.35 8.04 C 2.34 8.36 0 10.91 0 14 C 0 17.31 2.69 20 6 20 H 19 C 21.76 20 24 17.76 24 15 C 24 12.36 21.95 10.22 19.35 10.04 Z M 12 8 L 7 13 H 10 V 17 H 14 V 13 H 17 L 12 8 Z" />
+                    </svg>
+                </div>
+                <div class="upload-card-text">
+                    <strong>Upload Image</strong>
+                    <span>Choose from your gallery</span>
+                </div>
+                <input type="file" id="fileGallery" accept="image/*" class="file-input-hidden">
+            </label>
         </div>
 
         <!-- Apply Frame Row -->
         <div class="apply-frame-row" id="applyFrameRow">
             <div class="apply-frame-left">
                 <div class="apply-frame-icon">
-                    <i class="fas fa-magic"></i>
+                    <svg class="sparkles-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M 10 2 Q 10 10 2 10 Q 10 10 10 18 Q 10 10 18 10 Q 10 10 10 2 Z" />
+                        <path d="M 18 3 Q 18 7 14 7 Q 18 7 18 11 Q 18 7 22 7 Q 18 7 18 3 Z" />
+                        <path d="M 16 14 Q 16 17 13 17 Q 16 17 16 20 Q 16 17 19 17 Q 16 17 16 14 Z" />
+                    </svg>
                 </div>
                 <div class="apply-frame-text">
                     <strong>Apply Frame</strong>
@@ -252,34 +229,7 @@ $pageTitle = 'العراق في كأس العالم 2026 | صيدلية حيا';
             </div>
         </div>
 
-        <!-- How to Use Section -->
-        <section class="how-section">
-            <div class="how-inner">
-                <h2 class="how-title">كيف تستخدم التطبيق؟</h2>
-                <div class="how-steps">
-                    <div class="how-step">
-                        <div class="how-icon" style="background: var(--haya-green);">
-                            <i class="fas fa-upload"></i>
-                        </div>
-                        <p>ارفع صورتك أو التقط صورة جديدة</p>
-                    </div>
-                    <div class="how-arrow"><i class="fas fa-chevron-left"></i></div>
-                    <div class="how-step">
-                        <div class="how-icon" style="background: var(--iraq-red);">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <p>يُضاف الإطار تلقائياً على صورتك</p>
-                    </div>
-                    <div class="how-arrow"><i class="fas fa-chevron-left"></i></div>
-                    <div class="how-step">
-                        <div class="how-icon" style="background: var(--haya-gold);">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <p>حمّل الصورة وشاركها مع الجميع!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
     </main>
 
