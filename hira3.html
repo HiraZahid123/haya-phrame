@@ -1539,11 +1539,11 @@
     .bg-pattern-left,
     .bg-pattern-right {
       position: fixed;
+      top: 0;
       bottom: 0;
-      width: 200px;
+      width: 288px;
       height: 100vh;
       background-repeat: no-repeat;
-      background-size: 100% 100%;
       pointer-events: none;
       z-index: 0;
     }
@@ -1551,11 +1551,15 @@
     .bg-pattern-left {
       left: 0;
       background-image: url('left-patterns.svg');
+      background-position: left center;
+      background-size: contain;
     }
 
     .bg-pattern-right {
       right: 0;
       background-image: url('right-patterns.svg');
+      background-position: right center;
+      background-size: contain;
     }
 
     .hero-card {
@@ -1694,6 +1698,11 @@
 
     /* ══ MOBILE RESPONSIVE ══ */
     @media (max-width: 991px) {
+      .bg-pattern-left,
+      .bg-pattern-right {
+        display: none;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
         grid-template-areas:
