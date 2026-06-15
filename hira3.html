@@ -537,8 +537,8 @@
 
     @media (max-width: 991px) {
       .card-footer-bar {
-        margin: 20px -16px -20px -16px;
-        padding: 12px 16px;
+        margin: 20px -20px -20px -20px;
+        padding: 20px;
         border-radius: 0 0 20px 20px;
       }
 
@@ -1508,7 +1508,7 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       .main-section {
-        padding: 30px 0 20px;
+        padding: 0;
       }
 
       .action-cards {
@@ -1618,8 +1618,7 @@
       margin: 0 auto !important;
       border-radius: 50% !important;
       overflow: hidden !important;
-      clip-path: circle(50% at 50% 50%) !important;
-      isolation: isolate !important;
+      transform: translateZ(0) !important;
     }
 
     /* photo thoda andar, frame bahar tak */
@@ -1628,7 +1627,6 @@
       inset: 6px !important;
       border-radius: 50% !important;
       overflow: hidden !important;
-      clip-path: circle(50% at 50% 50%) !important;
       z-index: 1 !important;
       background: #dde3ea !important;
     }
@@ -1646,38 +1644,17 @@
       inset: 0 !important;
       border-radius: 50% !important;
       overflow: hidden !important;
-      clip-path: circle(50% at 50% 50%) !important;
       cursor: pointer !important;
       display: flex !important;
-      flex-direction: column !important;
       align-items: center !important;
       justify-content: center !important;
-      padding-top: 20px !important;
       background: linear-gradient(160deg, #e4eaf0 55%, #ccd6e0 100%) !important;
     }
 
-    .dummy-silhouette {
-      position: relative !important;
-      display: flex !important;
-      flex-direction: column !important;
-      align-items: center !important;
-      width: 100% !important;
-    }
-
-    .dummy-head {
-      width: 92px !important;
-      height: 92px !important;
-      border-radius: 50% !important;
-      background: #b5c2cc !important;
-      margin-bottom: 0 !important;
-      flex-shrink: 0 !important;
-    }
-
-    .dummy-body {
-      width: 185px !important;
-      height: 125px !important;
-      border-radius: 92px 92px 0 0 !important;
-      background: #b5c2cc !important;
+    .dummy-svg {
+      width: 72% !important;
+      height: 72% !important;
+      display: block !important;
     }
 
     .upload-hint-label {
@@ -1748,19 +1725,7 @@
         height: 260px !important;
         border-radius: 50% !important;
         overflow: hidden !important;
-        clip-path: circle(50% at 50% 50%) !important;
-        isolation: isolate !important;
-      }
-
-      .dummy-head {
-        width: 74px !important;
-        height: 74px !important;
-      }
-
-      .dummy-body {
-        width: 148px !important;
-        height: 100px !important;
-        border-radius: 74px 74px 0 0 !important;
+        transform: translateZ(0) !important;
       }
 
       .action-cards {
@@ -1775,9 +1740,15 @@
       }
 
       .hero-card {
-        padding: 20px 16px 20px;
-        margin: 16px auto;
+        padding: 20px;
+        margin: 16px;
         border-radius: 20px;
+      }
+
+      .main-section .container,
+      .result-screen .container {
+        padding-left: 0;
+        padding-right: 0;
       }
 
       .btn-download,
@@ -1801,19 +1772,7 @@
         height: 230px !important;
         border-radius: 50% !important;
         overflow: hidden !important;
-        clip-path: circle(50% at 50% 50%) !important;
-        isolation: isolate !important;
-      }
-
-      .dummy-head {
-        width: 66px !important;
-        height: 66px !important;
-      }
-
-      .dummy-body {
-        width: 130px !important;
-        height: 88px !important;
-        border-radius: 65px 65px 0 0 !important;
+        transform: translateZ(0) !important;
       }
 
       .action-card {
@@ -1865,22 +1824,25 @@
       position: relative;
       margin: 0 auto;
       flex-shrink: 0;
-      border-radius: 50%;
-      overflow: hidden;
+      border-radius: 50% !important;
+      overflow: hidden !important;
+      transform: translateZ(0) !important;
     }
 
-    /* single canvas fills entire wrapper — JS composites photo + frame */
+    /* override global .photo-bg rules for result section */
     .result-frame-wrapper .photo-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: transparent;
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 1 !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      overflow: visible !important;
     }
 
     .result-frame-wrapper .photo-bg canvas {
-      width: 100%;
-      height: 100%;
-      display: block;
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
     }
 
     /* hide the CSS frame overlay — canvas handles it */
@@ -1888,12 +1850,18 @@
       display: none !important;
     }
 
+    /* result share button */
+    .result-btn-share {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
     /* result buttons row */
     .result-btns-row {
       display: flex;
       gap: 14px;
-      flex-direction: row-reverse;
-      margin-top: 20px;
+      flex-direction: row;
+      margin-top: 10px;
     }
 
     .result-btn-download {
@@ -1948,8 +1916,8 @@
       }
 
       .result-screen>.container {
-        padding-top: 12px;
-        padding-bottom: 20px;
+        padding-top: 0;
+        padding-bottom: 0;
       }
 
       /* frame comes FIRST on mobile */
@@ -1985,10 +1953,15 @@
       }
 
       /* buttons stack vertically */
+      .result-btn-share {
+        width: 100%;
+        margin-top: 0 !important;
+      }
+
       .result-btns-row {
         flex-direction: column;
         gap: 10px;
-        margin-top: 14px;
+        margin-top: 10px;
       }
 
       .result-btn-download,
@@ -2079,20 +2052,16 @@
               <div class="photo-bg" id="photoBg">
                 <canvas id="previewCanvas"></canvas>
                 <div class="photo-placeholder" id="placeholder" onclick="document.getElementById('fileInput').click()">
-                  <div class="dummy-silhouette">
-                    <div class="dummy-head"></div>
-                    <div class="dummy-body"></div>
-                  </div>
+                  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="dummy-svg">
+                    <circle cx="50" cy="38" r="22" fill="#b5c2cc"/>
+                    <path d="M5,95 Q5,62 50,62 Q95,62 95,95 Z" fill="#b5c2cc"/>
+                  </svg>
                 </div>
               </div>
               <img id="framePng" class="frame-img-overlay frame-active" src="frame.svg" crossorigin="anonymous"
                 alt="إطار حيا" onload="pngLoaded=true;"
                 onerror="pngLoaded=false; console.warn('frame.svg not found.');" />
             </div>
-            <button class="btn-share" style="margin-top:14px;" onclick="openShareModal()">
-              <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
-              <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
-            </button>
           </div>
 
           <!-- ══ ACTIONS SECTION (right-bottom on desktop, bottom on mobile) ══ -->
@@ -2134,12 +2103,6 @@
               <span class="dl-sub" id="downloadBtnSub">احفظ صورتك مع إطار الدعم للعراق</span>
             </button>
 
-            <div id="shareRowWrap" style="display:none;">
-              <button class="btn-share" onclick="openShareModal()">
-                <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
-                <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
-              </button>
-            </div>
           </div><!-- /hg-actions -->
 
         </div><!-- /hero-grid -->
@@ -2225,18 +2188,17 @@
 
           <!-- BOTTOM: two buttons -->
           <div class="hg-actions">
+            <button class="btn-share result-btn-share" onclick="openShareModal()">
+              <i class="fas fa-share-alt" style="margin-left:8px;"></i> شارك صورتك
+            </button>
             <div class="result-btns-row">
-              <button class="result-btn-outline" onclick="tryAnotherPhoto()">
-                <i class="fas fa-redo-alt"></i> جاول صورة أخرى
-              </button>
               <button class="result-btn-download" onclick="downloadResultPhoto()">
-                <img src="down.png" alt="" style="width:18px;height:18px;object-fit:contain;"> تنزيل الصورة
+                <i class="fas fa-arrow-down" style="margin-left:8px;"></i> تنزيل الصورة
+              </button>
+              <button class="result-btn-outline" onclick="tryAnotherPhoto()">
+                <i class="fas fa-sync-alt" style="margin-left:8px;"></i> حاول صورة أخرى
               </button>
             </div>
-            <button class="btn-share" onclick="openShareModal()">
-              <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
-              <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
-            </button>
           </div>
 
         </div><!-- /hero-grid -->
@@ -2562,24 +2524,31 @@
       const ctx = rc.getContext('2d');
       ctx.clearRect(0, 0, size, size);
 
+      // strict circular clip — nothing outside the circle
       ctx.save();
       ctx.beginPath();
       ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
       ctx.clip();
 
-      // draw photo scaled to inner ring only (inner circle ≈ 78% of wrapper)
-      const photoSize = size * 0.78;
+      // draw photo inside the inner ring area (clipped to inner circle)
+      const photoSize = size * 0.84;
       const iw = userImage.naturalWidth || 640;
       const ih = userImage.naturalHeight || 480;
       const sc = Math.max(photoSize / iw, photoSize / ih);
       const dw = iw * sc, dh = ih * sc;
+      
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, photoSize / 2, 0, Math.PI * 2);
+      ctx.clip();
       ctx.drawImage(userImage, (size - dw) / 2, (size - dh) / 2, dw, dh);
+      ctx.restore();
 
-      // load frame → strip gray center → draw vivid ring on top (normal blend)
+      // draw frame on top — also clipped to circle
       const fi = new Image();
       fi.onload = () => {
         const processedFrame = buildFrameCanvas(fi, size);
-        ctx.drawImage(processedFrame, 0, 0);
+        ctx.drawImage(processedFrame, 0, 0, size, size);
         ctx.restore();
       };
       fi.onerror = () => { ctx.restore(); };
@@ -2591,9 +2560,11 @@
       rs.classList.add('active');
       rs.scrollTop = 0;
       requestAnimationFrame(() => {
-        const wrapper = document.getElementById('resultFrameWrapper');
-        const size = wrapper.offsetWidth || 360;
-        renderResultCanvas(size);
+        requestAnimationFrame(() => {
+          const wrapper = document.getElementById('resultFrameWrapper');
+          const size = wrapper.offsetWidth || 360;
+          renderResultCanvas(size);
+        });
       });
     }
 
@@ -2616,13 +2587,19 @@
       ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
       ec.clip();
 
-      // draw photo scaled to inner ring (78% of total size)
-      const photoSize = SIZE * 0.78;
+      // draw photo scaled to inner ring (78% of total size, clipped to inner circle)
+      const photoSize = SIZE * 0.84;
       const iw = userImage.naturalWidth || 640;
       const ih = userImage.naturalHeight || 480;
       const sc = Math.max(photoSize / iw, photoSize / ih);
       const dw = iw * sc, dh = ih * sc;
+      
+      ec.save();
+      ec.beginPath();
+      ec.arc(SIZE / 2, SIZE / 2, photoSize / 2, 0, Math.PI * 2);
+      ec.clip();
       ec.drawImage(userImage, (SIZE - dw) / 2, (SIZE - dh) / 2, dw, dh);
+      ec.restore();
 
       // load frame → strip gray center → draw vivid ring on top
       const fi = new Image();
@@ -2734,7 +2711,7 @@
     function buildExportCanvas() {
       return new Promise((resolve, reject) => {
         if (!userImage) { reject('no image'); return; }
-        const SIZE = 800, INSET = 0.12, photoR = SIZE * (1 - 2 * INSET) / 2, cx = SIZE / 2, cy = SIZE / 2;
+        const SIZE = 800, INSET = 0.08, photoR = SIZE * (1 - 2 * INSET) / 2, cx = SIZE / 2, cy = SIZE / 2;
         const exp = document.getElementById('exportCanvas');
         exp.width = SIZE; exp.height = SIZE;
         const ec = exp.getContext('2d');
