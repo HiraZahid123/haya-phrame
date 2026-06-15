@@ -2773,12 +2773,17 @@
     }
 
     async function openShareModal() {
-      if (userImage && !lastDataUrl) {
-        try { lastDataUrl = await buildExportCanvas(); }
-        catch (e) { }
-      }
-      setSharePreview(lastDataUrl);
+      // Show the modal immediately — don't wait for canvas build
       document.getElementById('shareModal').classList.add('active');
+      setSharePreview(lastDataUrl); // show whatever we have (may be null initially)
+
+      // Build canvas in background if needed, then update preview
+      if (userImage && !lastDataUrl) {
+        try {
+          lastDataUrl = await buildExportCanvas();
+          setSharePreview(lastDataUrl); // update preview once ready
+        } catch (e) { }
+      }
     }
 
     function closeShareModal() {
