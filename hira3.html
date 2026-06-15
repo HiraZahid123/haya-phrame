@@ -1376,80 +1376,16 @@
       min-height: 70px;
     }
 
-    .share-btns-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    .share-btn-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 5px;
-      padding: 12px 6px;
-      border-radius: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      border: 1.5px solid #eee;
-      transition: transform .15s, box-shadow .15s, border-color .15s;
-      background: #fafafa;
-    }
-
-    .share-btn-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
-      border-color: #ddd;
-    }
-
-    .sbi-icon {
-      font-size: 26px;
-      line-height: 1;
-    }
-
-    .sbi-label {
-      font-size: 10px;
-      font-weight: 700;
-      color: #333;
-      font-family: 'Cairo', sans-serif;
-    }
-
-    .sbi-wa .sbi-icon {
-      color: #25d366;
-    }
-
-    .sbi-fb .sbi-icon {
-      color: #1877f2;
-    }
-
-    .sbi-ig .sbi-icon {
-      background: radial-gradient(circle at 30% 110%, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .sbi-tw .sbi-icon {
-      color: #1da1f2;
-    }
-
-    .sbi-tg .sbi-icon {
-      color: #229ed9;
-    }
-
-    .sbi-cp .sbi-icon {
-      color: #555;
-    }
 
     .btn-native-share {
-      display: none;
+      display: flex;
       width: 100%;
       background: var(--green-mid);
       color: #fff;
       border: none;
       border-radius: 14px;
-      padding: 14px;
-      font-size: 15px;
+      padding: 15px 20px;
+      font-size: 16px;
       font-weight: 700;
       cursor: pointer;
       margin-bottom: 12px;
@@ -2375,37 +2311,9 @@
       </div>
 
       <button class="btn-native-share" id="nativeShareBtn" onclick="nativeShare()">
-        <i class="fas fa-share-alt" style="margin-left:6px;"></i>📎 شارك الصورة والنص معاً
+        <i class="fas fa-share-alt" style="margin-left:6px;"></i> شارك الصورة والنص معاً
       </button>
 
-      <div class="share-btns-grid">
-        <a class="share-btn-item sbi-wa" href="#" onclick="shareWhatsApp(event)">
-          <span class="sbi-icon"><i class="fab fa-whatsapp"></i></span>
-          <span class="sbi-label">واتساب</span>
-        </a>
-        <a class="share-btn-item sbi-fb" href="#" onclick="shareFacebook(event)">
-          <span class="sbi-icon"><i class="fab fa-facebook"></i></span>
-          <span class="sbi-label">فيسبوك</span>
-        </a>
-        <a class="share-btn-item sbi-ig" href="#" onclick="shareInstagram(event)">
-          <span class="sbi-icon"><i class="fab fa-instagram"></i></span>
-          <span class="sbi-label">انستغرام</span>
-        </a>
-        <a class="share-btn-item sbi-tw" href="#" onclick="shareTwitter(event)">
-          <span class="sbi-icon"><i class="fab fa-twitter"></i></span>
-          <span class="sbi-label">تويتر / X</span>
-        </a>
-        <a class="share-btn-item sbi-tg" href="#" onclick="shareTelegram(event)">
-          <span class="sbi-icon"><i class="fab fa-telegram"></i></span>
-          <span class="sbi-label">تيليغرام</span>
-        </a>
-        <a class="share-btn-item sbi-cp" href="#" onclick="copyLink(event)">
-          <span class="sbi-icon"><i class="fas fa-link"></i></span>
-          <span class="sbi-label">نسخ الرابط</span>
-        </a>
-      </div>
-
-      <p class="share-note">💡 على الهاتف، اضغط "شارك الصورة والنص معاً" لإرسالهما دفعة واحدة.</p>
       <button class="share-modal-close" onclick="closeShareModal()">إغلاق</button>
     </div>
   </div>
@@ -2859,8 +2767,9 @@
       if (!ta.value) ta.value = DEFAULT_SHARE_MSG;
       dis.textContent = ta.value;
 
+      // Always show the native share button
       const nBtn = document.getElementById('nativeShareBtn');
-      nBtn.style.display = (typeof navigator.share === 'function') ? 'flex' : 'none';
+      nBtn.style.display = 'flex';
     }
 
     async function openShareModal() {
@@ -2899,19 +2808,35 @@
 
     /* ── Native Share ── */
     async function nativeShare() {
-      if (!navigator.share) { toast('المشاركة المباشرة غير مدعومة — استخدم أحد أزرار المنصات.'); return; }
+      if (!navigator.share) {
+        toast('المشاركة المباشرة غير مدعومة في هذا المتصفح.');
+        return;
+      }
+      if (!lastDataUrl) {
+        toast('⏳ الرجاء الانتظار، جاري تجهيز الصورة…');
+        try { lastDataUrl = await buildExportCanvas(); } catch (e) { toast('❌ تعذر تجهيز الصورة.'); return; }
+      }
       try {
         const msg = getShareMsg();
         const blob = dataURLtoBlob(lastDataUrl);
         const file = new File([blob], 'iraq-support-haya.png', { type: 'image/png' });
-        const fullPayload = { title: '🌿 دعم العراق – صيدلية حيا ⚽', text: msg, files: [file] };
-        const canShareFiles = navigator.canShare && navigator.canShare(fullPayload);
-        if (canShareFiles) {
-          await navigator.share(fullPayload);
-          toast('✅ تم مشاركة الصورة والرسالة معاً!');
+        // Try sharing image + text together (supported on most modern mobile browsers)
+        const payloadWithFile = {
+          title: '🌿 دعم العراق – صيدلية حيا ⚽',
+          text: msg,
+          files: [file]
+        };
+        if (navigator.canShare && navigator.canShare(payloadWithFile)) {
+          await navigator.share(payloadWithFile);
+          toast('✅ تم مشاركة الصورة والنص معاً!');
         } else {
-          await navigator.share({ title: '🌿 دعم العراق – صيدلية حيا ⚽', text: msg, url: window.location.href });
-          toast('✅ تمت المشاركة! أرفق الصورة المحملة يدوياً.');
+          // Fallback: share text + url without file
+          await navigator.share({
+            title: '🌿 دعم العراق – صيدلية حيا ⚽',
+            text: msg,
+            url: window.location.href
+          });
+          toast('✅ تمت المشاركة بالنص! قم بإرفاق الصورة يدوياً.');
         }
       } catch (err) {
         if (err.name !== 'AbortError') toast('تعذرت المشاركة: ' + err.message);
