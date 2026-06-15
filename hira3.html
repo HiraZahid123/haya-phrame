@@ -470,14 +470,15 @@
       color: #fff;
       border: none;
       border-radius: 14px;
-      padding: 16px 20px;
+      padding: 15px 20px;
       width: 100%;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 700;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      gap: 3px;
+      justify-content: center;
+      gap: 8px;
       cursor: pointer;
       margin-top: 12px;
       font-family: 'Cairo', sans-serif;
@@ -1155,24 +1156,54 @@
     }
 
     @media (max-width: 991px) {
-      .hero-card.cam-open {
-        min-height: 520px;
+      .cam-ui {
+        position: fixed !important;
+        inset: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        z-index: 1500 !important;
+        border-radius: 0 !important;
+        background: #F6EDEA !important;
+        overflow: hidden !important;
+        display: none;
+      }
+
+      .cam-ui.active {
+        display: flex !important;
+      }
+
+      .cam-viewport-wrap {
+        flex: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        min-height: 0 !important;
+        padding: 10px 20px !important;
       }
 
       .cam-circle {
-        width: 200px;
-        height: 200px;
+        width: min(240px, 45vh, 70vw) !important;
+        height: min(240px, 45vh, 70vw) !important;
+      }
+
+      .cam-face-hint {
+        margin-top: 10px !important;
+      }
+
+      .cam-iraq-hint {
+        margin-bottom: 5px !important;
+      }
+
+      .hero-card.cam-open {
+        min-height: unset !important;
       }
     }
 
     @media (max-width: 767px) {
       .cam-header-title {
         font-size: 18px;
-      }
-
-      .cam-circle {
-        width: 180px;
-        height: 180px;
       }
 
       .cam-capture-btn {
@@ -1207,18 +1238,9 @@
       .cam-modes span {
         font-size: 11px;
       }
-
-      .hero-card.cam-open {
-        min-height: 480px;
-      }
     }
 
     @media (max-width: 480px) {
-      .cam-circle {
-        width: 155px;
-        height: 155px;
-      }
-
       .cam-capture-btn {
         width: 58px;
         height: 58px;
@@ -1227,10 +1249,6 @@
       .cam-capture-btn::after {
         width: 44px;
         height: 44px;
-      }
-
-      .hero-card.cam-open {
-        min-height: 450px;
       }
     }
 
@@ -2721,8 +2739,14 @@
       await startCamera();
       webcamModal.classList.add('active');
       document.querySelector('.hero-card').classList.add('cam-open');
-      document.body.style.overflow = 'auto';
-      document.body.style.height = 'auto';
+      const isMobile = window.innerWidth <= 991;
+      if (isMobile) {
+        document.body.style.overflow = 'hidden';
+        document.body.style.height = '100vh';
+      } else {
+        document.body.style.overflow = 'auto';
+        document.body.style.height = 'auto';
+      }
     }
 
     async function startCamera() {
