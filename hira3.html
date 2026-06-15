@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>صيدلية حيا – دعم العراق في كأس العالم</title>
-  <meta name="description" content="صورة بروفايل لدعم منتخب العراق في كأس العالم – صيدلية حيا"/>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <meta name="description" content="صورة بروفايل لدعم منتخب العراق في كأس العالم – صيدلية حيا" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --green:       hsl(153, 55%, 18%);   /* #0d4a2a deep green */
-      --green-mid:   #015645;
+      --green: hsl(153, 55%, 18%);
+      /* #0d4a2a deep green */
+      --green-mid: #015645;
       --green-light: #e8f5ee;
-      --red:         #CE1126;
-      --gold:        hsl(36, 42%, 55%);    /* warm gold */
-      --gold-light:  hsl(36, 38%, 88%);
-      --cream:       hsl(30, 25%, 93%);    /* #ede8e1 */
-      --cream-dark:  hsl(30, 18%, 85%);
-      --text-main:   hsl(150, 40%, 12%);
+      --red: #CE1126;
+      --gold: hsl(36, 42%, 55%);
+      /* warm gold */
+      --gold-light: hsl(36, 38%, 88%);
+      --cream: hsl(30, 25%, 93%);
+      /* #ede8e1 */
+      --cream-dark: hsl(30, 18%, 85%);
+      --text-main: hsl(150, 40%, 12%);
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       background: #F6EDEA;
@@ -30,8 +40,12 @@
       position: relative;
       overflow-x: hidden;
     }
+
     @media (min-width: 992px) {
-      body { height: 100vh; overflow: hidden; }
+      body {
+        height: 100vh;
+        overflow: hidden;
+      }
     }
 
     /* ─── BACKGROUND PATTERN ─── */
@@ -54,40 +68,80 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      box-shadow: 0 2px 16px rgba(0,0,0,.18);
+      box-shadow: 0 2px 16px rgba(0, 0, 0, .18);
       direction: ltr;
     }
+
     .flag-selector-box {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: hsl(30,25%,93%);
+      background: hsl(30, 25%, 93%);
       padding: 7px 14px;
       border-radius: 10px;
       cursor: pointer;
       border: none;
       transition: opacity .2s;
     }
-    .flag-selector-box:hover { opacity: .85; }
-    .flag-chevron { color: #333; font-size: 13px; }
+
+    .flag-selector-box:hover {
+      opacity: .85;
+    }
+
+    .flag-chevron {
+      color: #333;
+      font-size: 13px;
+    }
+
     .iraq-flag {
-      width: 52px; height: 34px;
+      width: 52px;
+      height: 34px;
       border-radius: 5px;
       overflow: hidden;
       border: 1px solid #aaa;
-      display: flex; flex-direction: column;
+      display: flex;
+      flex-direction: column;
       flex-shrink: 0;
     }
-    .iraq-flag .r { flex:1; background: var(--red); }
-    .iraq-flag .w { flex:1; background:#fff; display:flex; align-items:center; justify-content:center; }
-    .iraq-flag .w span { font-size:6px; color:#007a3d; font-weight:700; letter-spacing:.3px; font-family:serif; }
-    .iraq-flag .b { flex:1; background:#000; }
-    .navbar-logo { height: 64px; object-fit: contain; display: block; image-rendering: -webkit-optimize-contrast; }
+
+    .iraq-flag .r {
+      flex: 1;
+      background: var(--red);
+    }
+
+    .iraq-flag .w {
+      flex: 1;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .iraq-flag .w span {
+      font-size: 6px;
+      color: #007a3d;
+      font-weight: 700;
+      letter-spacing: .3px;
+      font-family: serif;
+    }
+
+    .iraq-flag .b {
+      flex: 1;
+      background: #000;
+    }
+
+    .navbar-logo {
+      height: 64px;
+      object-fit: contain;
+      display: block;
+      image-rendering: -webkit-optimize-contrast;
+    }
 
     /* ─── MAIN SECTION ─── */
     .main-section {
       padding: 0;
     }
+
     @media (min-width: 992px) {
       .main-section {
         height: calc(100vh - 100px);
@@ -98,7 +152,11 @@
     }
 
     /* ─── LEFT: FRAME ─── */
-    .frame-col { display: flex; flex-direction: column; align-items: center; }
+    .frame-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     .frame-wrapper {
       position: relative;
@@ -108,7 +166,9 @@
       margin: 0 auto;
     }
 
-    .frame-wrapper::before { display: none; }
+    .frame-wrapper::before {
+      display: none;
+    }
 
     .photo-bg {
       position: absolute;
@@ -119,87 +179,142 @@
       background: #dde3ea;
       box-shadow: none;
     }
+
     #previewCanvas {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       display: block;
       border-radius: 50%;
     }
 
     /* Dummy user silhouette */
     .photo-placeholder {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      cursor: pointer; border-radius: 50%;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%;
       background: linear-gradient(160deg, #e4eaf0 55%, #ccd6e0 100%);
       gap: 0;
       overflow: hidden;
     }
+
     .dummy-silhouette {
-      display: flex; flex-direction: column; align-items: center;
-      pointer-events: none; position: absolute; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      position: absolute;
+      bottom: 0;
       width: 100%;
     }
+
     .dummy-head {
-      width: 72px; height: 72px;
+      width: 72px;
+      height: 72px;
       border-radius: 50%;
       background: #b5c2cc;
       margin-bottom: 0;
       flex-shrink: 0;
     }
+
     .dummy-body {
-      width: 140px; height: 90px;
+      width: 140px;
+      height: 90px;
       border-radius: 70px 70px 0 0;
       background: #b5c2cc;
     }
+
     .upload-hint-label {
       position: absolute;
       bottom: 18%;
-      font-size: 11px; color: #7a8a97;
-      font-weight: 700; text-align: center;
+      font-size: 11px;
+      color: #7a8a97;
+      font-weight: 700;
+      text-align: center;
       padding: 0 20px;
       font-family: 'Cairo', sans-serif;
-      background: rgba(255,255,255,.7);
+      background: rgba(255, 255, 255, .7);
       border-radius: 20px;
       padding: 4px 14px;
     }
 
     /* Frame PNG overlay */
     .frame-img-overlay {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; z-index: 3;
-      object-fit: contain; opacity: 0;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      object-fit: contain;
+      opacity: 0;
       transition: opacity .4s ease;
     }
-    .frame-img-overlay.frame-active { opacity: 1; }
+
+    .frame-img-overlay.frame-active {
+      opacity: 1;
+    }
 
     /* ─── SOCIAL ICONS ─── */
     .social-bar {
-      display: flex; align-items: center; gap: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-top: 12px;
-      flex-wrap: wrap; justify-content: center;
+      flex-wrap: wrap;
+      justify-content: center;
     }
+
     .social-hint {
-      font-size: 11px; color: #666;
+      font-size: 11px;
+      color: #666;
       font-family: 'Cairo', sans-serif;
-      flex-basis: 100%; text-align: center;
+      flex-basis: 100%;
+      text-align: center;
       margin-bottom: 4px;
     }
+
     .soc-link {
-      width: 38px; height: 38px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 17px; text-decoration: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      text-decoration: none;
       transition: opacity .2s, transform .18s;
-      box-shadow: 0 2px 8px rgba(0,0,0,.12);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
     }
-    .soc-link:hover { opacity: .85; transform: scale(1.1); }
-    .wa-ic { background: #25d366; color: #fff; }
-    .ig-ic { background: radial-gradient(circle at 30% 110%,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888); color: #fff; }
-    .fb-ic { background: #1877f2; color: #fff; }
+
+    .soc-link:hover {
+      opacity: .85;
+      transform: scale(1.1);
+    }
+
+    .wa-ic {
+      background: #25d366;
+      color: #fff;
+    }
+
+    .ig-ic {
+      background: radial-gradient(circle at 30% 110%, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
+      color: #fff;
+    }
+
+    .fb-ic {
+      background: #1877f2;
+      color: #fff;
+    }
 
     /* ─── RIGHT CONTENT ─── */
-    .content-col { padding: 0 6px; }
+    .content-col {
+      padding: 0 6px;
+    }
 
     .hero-title {
       font-size: clamp(24px, 3.8vw, 38px);
@@ -209,7 +324,10 @@
       margin-bottom: 10px;
       font-family: 'Cairo', sans-serif;
     }
-    .hero-title .highlight { color: var(--green-mid); }
+
+    .hero-title .highlight {
+      color: var(--green-mid);
+    }
 
     .hero-sub {
       font-size: clamp(12px, 1.8vw, 14px);
@@ -233,6 +351,7 @@
       gap: 10px;
       margin-bottom: 12px;
     }
+
     .action-card {
       flex: 1;
       background: #fff;
@@ -244,70 +363,138 @@
       transition: border-color .2s, box-shadow .2s, transform .15s;
       position: relative;
     }
+
     .action-card:hover {
       border-color: var(--green-mid);
-      box-shadow: 0 6px 20px rgba(0,92,62,.13);
+      box-shadow: 0 6px 20px rgba(0, 92, 62, .13);
       transform: translateY(-3px);
     }
+
     .action-card.applied {
       border-color: var(--green-mid);
       background: var(--green-light);
     }
+
     .icon-circle {
-      width: 42px; height: 42px;
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 8px; font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+      font-size: 18px;
     }
-    .ic-green { background: #e8f5ee; color: var(--green-mid); }
-    .ic-red   { background: #fdeaea; color: var(--red); }
-    .ic-gold  { background: var(--gold-light); color: hsl(36,42%,38%); }
+
+    .ic-green {
+      background: #e8f5ee;
+      color: var(--green-mid);
+    }
+
+    .ic-red {
+      background: #fdeaea;
+      color: var(--red);
+    }
+
+    .ic-gold {
+      background: var(--gold-light);
+      color: hsl(36, 42%, 38%);
+    }
+
     .card-label {
-      font-weight: 700; font-size: 13px;
-      color: #1a1a1a; margin-bottom: 4px;
+      font-weight: 700;
+      font-size: 13px;
+      color: #1a1a1a;
+      margin-bottom: 4px;
       font-family: 'Cairo', sans-serif;
     }
+
     .card-sub {
-      font-size: 10px; color: #888;
+      font-size: 10px;
+      color: #888;
       font-family: 'Cairo', sans-serif;
       line-height: 1.45;
     }
+
     /* Hidden arrow for JS compatibility */
-    #applyFrameArrow { display: none; }
+    #applyFrameArrow {
+      display: none;
+    }
 
     /* ─── DOWNLOAD BUTTON ─── */
     .btn-download {
       background: var(--green-mid);
-      color: #fff; border: none;
+      color: #fff;
+      border: none;
       border-radius: 14px;
-      padding: 12px 20px; width: 100%;
-      font-size: 16px; font-weight: 700;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 2px;
+      padding: 12px 20px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
       cursor: pointer;
       font-family: 'Cairo', sans-serif;
       transition: background .2s, transform .15s, opacity .2s;
-      box-shadow: 0 4px 18px rgba(0,92,62,.28);
+      box-shadow: 0 4px 18px rgba(0, 92, 62, .28);
     }
-    .btn-download:hover   { background: #004734; transform: translateY(-2px); }
-    .btn-download:active  { transform: translateY(0); }
-    .btn-download:disabled { opacity: .5; cursor: not-allowed; transform: none; background: #999; box-shadow: none; }
-    .btn-download .dl-sub { font-size: 12px; font-weight: 400; opacity: .88; }
+
+    .btn-download:hover {
+      background: #004734;
+      transform: translateY(-2px);
+    }
+
+    .btn-download:active {
+      transform: translateY(0);
+    }
+
+    .btn-download:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none;
+      background: #999;
+      box-shadow: none;
+    }
+
+    .btn-download .dl-sub {
+      font-size: 12px;
+      font-weight: 400;
+      opacity: .88;
+    }
 
     /* ─── SHARE BUTTON ─── */
     .btn-share {
-      background: #1877f2; color: #fff; border: none;
-      border-radius: 14px; padding: 16px 20px; width: 100%;
-      font-size: 17px; font-weight: 700;
-      display: flex; flex-direction: column;
-      align-items: center; gap: 3px;
-      cursor: pointer; margin-top: 12px;
+      background: var(--green-mid);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 16px 20px;
+      width: 100%;
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      cursor: pointer;
+      margin-top: 12px;
       font-family: 'Cairo', sans-serif;
       transition: background .2s, transform .15s;
-      box-shadow: 0 4px 18px rgba(24,119,242,.25);
+      box-shadow: 0 4px 18px rgba(1, 86, 69, .28);
     }
-    .btn-share:hover { background: #1465d0; transform: translateY(-2px); }
-    .btn-share .dl-sub { font-size: 12px; font-weight: 400; opacity: .88; }
+
+    .btn-share:hover {
+      background: #004734;
+      transform: translateY(-2px);
+    }
+
+    .btn-share .dl-sub {
+      font-size: 12px;
+      font-weight: 400;
+      opacity: .88;
+    }
 
     /* ─── CARD FOOTER BAR (inside card) ─── */
     .card-footer-bar {
@@ -317,12 +504,14 @@
       padding: 11px 36px;
       direction: ltr;
     }
+
     .card-footer-inner {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0;
     }
+
     .card-footer-item {
       display: flex;
       align-items: center;
@@ -333,35 +522,67 @@
       color: #015645;
       padding: 0 28px;
     }
-    .card-footer-item i { font-size: 14px; opacity: 0.85; }
+
+    .card-footer-item i {
+      font-size: 14px;
+      opacity: 0.85;
+    }
+
     .card-footer-divider {
-      width: 1px; height: 20px;
-      background: rgba(1,86,69,0.3);
+      width: 1px;
+      height: 20px;
+      background: rgba(1, 86, 69, 0.3);
       flex-shrink: 0;
     }
+
     @media (max-width: 991px) {
-      .card-footer-bar { margin: 20px -16px -20px -16px; padding: 12px 16px; border-radius: 0 0 20px 20px; }
-      .card-footer-item { padding: 0 14px; font-size: 11px; }
+      .card-footer-bar {
+        margin: 20px -16px -20px -16px;
+        padding: 12px 16px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .card-footer-item {
+        padding: 0 14px;
+        font-size: 11px;
+      }
     }
+
     @media (max-width: 480px) {
-      .card-footer-inner { flex-direction: column; gap: 6px; }
-      .card-footer-divider { width: 50px; height: 1px; }
-      .card-footer-item { padding: 0 8px; }
+      .card-footer-inner {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .card-footer-divider {
+        width: 50px;
+        height: 1px;
+      }
+
+      .card-footer-item {
+        padding: 0 8px;
+      }
     }
 
     /* ─── PHOTO PICKER MODAL (full page) ─── */
     .photo-picker-bg {
       display: none;
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background: #F6EDEA;
       z-index: 1100;
       flex-direction: column;
     }
-    .photo-picker-bg.active { display: flex; }
+
+    .photo-picker-bg.active {
+      display: flex;
+    }
 
     .photo-picker-inner {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       max-width: 100%;
     }
 
@@ -372,22 +593,33 @@
       padding: 20px 24px 14px;
       direction: rtl;
       flex-shrink: 0;
-      border-bottom: 1px solid rgba(0,0,0,0.07);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
       background: #F6EDEA;
     }
+
     .photo-picker-header h2 {
       font-family: 'Cairo', sans-serif;
-      font-size: 20px; font-weight: 800;
-      color: #111; margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+      color: #111;
+      margin: 0;
     }
+
     .pp-btn-text {
       font-family: 'Cairo', sans-serif;
-      font-size: 15px; font-weight: 600;
-      color: #111; background: none;
-      border: none; cursor: pointer; padding: 6px 10px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #111;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 10px;
       border-radius: 8px;
     }
-    .pp-btn-text:hover { background: rgba(0,0,0,0.06); }
+
+    .pp-btn-text:hover {
+      background: rgba(0, 0, 0, 0.06);
+    }
 
     .photo-picker-grid {
       flex: 1;
@@ -398,6 +630,7 @@
       overflow-y: auto;
       align-content: start;
     }
+
     .pp-photo-item {
       position: relative;
       aspect-ratio: 1;
@@ -405,86 +638,132 @@
       overflow: hidden;
       border-radius: 4px;
     }
+
     .pp-photo-item img {
-      width: 100%; height: 100%;
-      object-fit: cover; display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
       transition: opacity .2s;
     }
-    .pp-photo-item.selected img { opacity: 0.82; }
+
+    .pp-photo-item.selected img {
+      opacity: 0.82;
+    }
+
     .pp-checkmark {
       display: none;
       position: absolute;
-      top: 8px; left: 8px;
-      width: 26px; height: 26px;
+      top: 8px;
+      left: 8px;
+      width: 26px;
+      height: 26px;
       background: #015645;
       border-radius: 50%;
-      align-items: center; justify-content: center;
-      color: #fff; font-size: 13px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
-    .pp-photo-item.selected .pp-checkmark { display: flex; }
+
+    .pp-photo-item.selected .pp-checkmark {
+      display: flex;
+    }
 
     .photo-picker-footer {
       padding: 12px 16px 24px;
       flex-shrink: 0;
       background: #F6EDEA;
-      border-top: 1px solid rgba(0,0,0,0.07);
+      border-top: 1px solid rgba(0, 0, 0, 0.07);
     }
+
     .pp-use-btn {
-      width: 100%; padding: 15px;
-      background: #015645; color: #fff;
-      border: none; border-radius: 14px;
-      font-size: 17px; font-weight: 700;
+      width: 100%;
+      padding: 15px;
+      background: #015645;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 17px;
+      font-weight: 700;
       font-family: 'Cairo', sans-serif;
-      cursor: pointer; opacity: 0.4;
+      cursor: pointer;
+      opacity: 0.4;
       transition: opacity .2s, background .2s;
       pointer-events: none;
     }
-    .pp-use-btn.ready { opacity: 1; pointer-events: auto; }
-    .pp-use-btn.ready:hover { background: #013d31; }
+
+    .pp-use-btn.ready {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .pp-use-btn.ready:hover {
+      background: #013d31;
+    }
 
     /* Desktop: max-width centered but still full height */
     @media (min-width: 768px) {
       .photo-picker-bg {
         align-items: center;
         justify-content: center;
-        background: rgba(0,0,0,0.5);
+        background: rgba(0, 0, 0, 0.5);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
       }
+
       .photo-picker-inner {
-        width: 92%; max-width: 860px;
+        width: 92%;
+        max-width: 860px;
         height: 88vh;
         border-radius: 20px;
         overflow: hidden;
-        box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
         animation: fadeScaleIn .3s ease;
       }
-      .photo-picker-header { padding: 22px 32px 16px; }
-      .photo-picker-header h2 { font-size: 22px; }
+
+      .photo-picker-header {
+        padding: 22px 32px 16px;
+      }
+
+      .photo-picker-header h2 {
+        font-size: 22px;
+      }
+
       .photo-picker-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 6px; padding: 6px 10px;
+        gap: 6px;
+        padding: 6px 10px;
       }
-      .photo-picker-footer { padding: 14px 32px 26px; }
+
+      .photo-picker-footer {
+        padding: 14px 32px 26px;
+      }
     }
 
     @media (min-width: 1200px) {
-      .photo-picker-grid { grid-template-columns: repeat(4, 1fr); }
+      .photo-picker-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     /* ─── GALLERY PERMISSION MODAL ─── */
     .gallery-modal-bg {
       display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.45);
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 1000;
       align-items: center;
       justify-content: center;
     }
-    .gallery-modal-bg.active { display: flex; }
+
+    .gallery-modal-bg.active {
+      display: flex;
+    }
 
     /* ── Desktop: centered modal ── */
     .gallery-sheet {
@@ -496,11 +775,19 @@
       text-align: center;
       direction: rtl;
       animation: fadeScaleIn .3s ease;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.25);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
     }
+
     @keyframes fadeScaleIn {
-      from { opacity: 0; transform: scale(0.92); }
-      to   { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     /* ── Mobile: bottom sheet ── */
@@ -509,138 +796,243 @@
         align-items: flex-end;
         justify-content: center;
       }
+
       .gallery-sheet {
         border-radius: 24px 24px 0 0;
         padding: 14px 24px 36px;
         width: 100%;
         max-width: 100%;
         animation: slideUp .35s ease;
-        box-shadow: 0 -8px 40px rgba(0,0,0,0.18);
+        box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.18);
       }
+
       @keyframes slideUp {
-        from { transform: translateY(100%); }
-        to   { transform: translateY(0); }
+        from {
+          transform: translateY(100%);
+        }
+
+        to {
+          transform: translateY(0);
+        }
       }
     }
 
     .gallery-sheet-handle {
-      width: 42px; height: 5px;
-      background: #ddd; border-radius: 99px;
+      width: 42px;
+      height: 5px;
+      background: #ddd;
+      border-radius: 99px;
       margin: 0 auto 20px;
       display: none;
     }
+
     @media (max-width: 767px) {
-      .gallery-sheet-handle { display: block; }
+      .gallery-sheet-handle {
+        display: block;
+      }
     }
 
     .gallery-cam-icon {
-      width: 78px; height: 78px;
+      width: 78px;
+      height: 78px;
       background: #f2f2f2;
       border-radius: 20px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 auto 22px;
     }
-    .gallery-cam-icon img { width: 40px; height: 40px; object-fit: contain; }
+
+    .gallery-cam-icon img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
 
     .gallery-title {
-      font-size: 22px; font-weight: 800;
-      color: #111; margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 10px;
       font-family: 'Cairo', sans-serif;
     }
+
     .gallery-sub {
-      font-size: 13px; color: #888;
-      line-height: 1.65; margin-bottom: 28px;
+      font-size: 13px;
+      color: #888;
+      line-height: 1.65;
+      margin-bottom: 28px;
       font-family: 'Cairo', sans-serif;
-      max-width: 340px; margin-left: auto; margin-right: auto;
+      max-width: 340px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     .gallery-btn-allow {
-      width: 100%; padding: 15px;
-      background: #015645; color: #fff;
-      border: none; border-radius: 14px;
-      font-size: 16px; font-weight: 700;
-      cursor: pointer; margin-bottom: 12px;
+      width: 100%;
+      padding: 15px;
+      background: #015645;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 12px;
       font-family: 'Cairo', sans-serif;
       transition: background .2s, transform .15s;
       display: block;
     }
-    .gallery-btn-allow:hover { background: #013d31; transform: translateY(-1px); }
+
+    .gallery-btn-allow:hover {
+      background: #013d31;
+      transform: translateY(-1px);
+    }
+
     .gallery-btn-cancel {
-      width: 100%; padding: 15px;
-      background: #fff; color: #444;
-      border: 1.5px solid #e0e0e0; border-radius: 14px;
-      font-size: 16px; font-weight: 600;
+      width: 100%;
+      padding: 15px;
+      background: #fff;
+      color: #444;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
       font-family: 'Cairo', sans-serif;
       transition: background .2s;
       display: block;
     }
-    .gallery-btn-cancel:hover { background: #f7f7f7; }
+
+    .gallery-btn-cancel:hover {
+      background: #f7f7f7;
+    }
 
     @media (max-width: 480px) {
-      .gallery-title { font-size: 19px; }
-      .gallery-sub   { font-size: 12px; }
-      .gallery-btn-allow, .gallery-btn-cancel { font-size: 15px; padding: 13px; }
-      .gallery-cam-icon { width: 66px; height: 66px; border-radius: 16px; }
-      .gallery-cam-icon img { width: 34px; height: 34px; }
+      .gallery-title {
+        font-size: 19px;
+      }
+
+      .gallery-sub {
+        font-size: 12px;
+      }
+
+      .gallery-btn-allow,
+      .gallery-btn-cancel {
+        font-size: 15px;
+        padding: 13px;
+      }
+
+      .gallery-cam-icon {
+        width: 66px;
+        height: 66px;
+        border-radius: 16px;
+      }
+
+      .gallery-cam-icon img {
+        width: 34px;
+        height: 34px;
+      }
     }
 
     /* ─── CAMERA UI (inside hero-card) ─── */
     .cam-ui {
       display: none;
-      position: absolute; inset: 0;
+      position: absolute;
+      inset: 0;
       z-index: 10;
       background: #F6EDEA;
       flex-direction: column;
       border-radius: 28px;
-      overflow-y: auto;   /* scrollable so bottom bar always reachable */
+      overflow-y: auto;
+      /* scrollable so bottom bar always reachable */
       overflow-x: hidden;
     }
-    .cam-ui.active { display: flex; }
-    .hero-card.cam-open { min-height: 580px; }
+
+    .cam-ui.active {
+      display: flex;
+    }
+
+    .hero-card.cam-open {
+      min-height: 580px;
+    }
 
     /* header */
     .cam-header {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 14px 20px 10px;
       direction: rtl;
     }
+
     .cam-header-title {
-      font-family: 'Cairo', sans-serif; font-size: 20px; font-weight: 800;
-      color: #111; margin: 0;
+      font-family: 'Cairo', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: #111;
+      margin: 0;
     }
+
     .cam-header-btn {
-      font-family: 'Cairo', sans-serif; font-size: 15px; font-weight: 600;
-      color: #015645; background: none; border: none; cursor: pointer; padding: 4px 10px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: #015645;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 10px;
     }
 
     /* iraq frame hint */
     .cam-iraq-hint {
-      text-align: center; color: #015645; font-family: 'Cairo', sans-serif;
-      font-size: 13px; font-weight: 600; margin-bottom: 10px;
+      text-align: center;
+      color: #015645;
+      font-family: 'Cairo', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
 
     /* viewport area */
     .cam-viewport-wrap {
       flex-shrink: 0;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       padding: 10px 20px;
       min-height: 280px;
     }
+
     .cam-circle {
-      width: 240px; height: 240px;
-      border-radius: 50%; overflow: hidden;
-      position: relative; background: #222;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+      background: #222;
       border: 2.5px dashed #aaa;
       flex-shrink: 0;
     }
+
     #webcamVideo {
-      position: absolute; inset: 0; width: 100%; height: 100%;
-      object-fit: cover; transform: scaleX(-1); display: block;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scaleX(-1);
+      display: block;
     }
+
     .cam-face-hint {
-      margin-top: 14px; font-family: 'Cairo', sans-serif;
-      font-size: 13px; color: #888; text-align: center;
+      margin-top: 14px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 13px;
+      color: #888;
+      text-align: center;
     }
 
     /* bottom toolbar — always fully visible */
@@ -650,179 +1042,497 @@
       direction: rtl;
       flex-shrink: 0;
     }
+
     .cam-modes {
-      display: flex; justify-content: center; gap: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
       margin-bottom: 18px;
     }
+
     .cam-modes span {
-      font-family: 'Cairo', sans-serif; font-size: 12px; font-weight: 600;
-      color: #888; cursor: pointer; padding: 2px 0; transition: color .2s;
+      font-family: 'Cairo', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #888;
+      cursor: pointer;
+      padding: 2px 0;
+      transition: color .2s;
     }
-    .cam-modes span.active { color: #f5c842; border-bottom: 2px solid #f5c842; }
+
+    .cam-modes span.active {
+      color: #f5c842;
+      border-bottom: 2px solid #f5c842;
+    }
 
     .cam-controls {
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 32px;
     }
+
     .cam-thumb {
-      width: 50px; height: 50px; border-radius: 10px;
-      background: #444; overflow: hidden; flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: #444;
+      overflow: hidden;
+      flex-shrink: 0;
     }
-    .cam-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .cam-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     /* iPhone-style shutter button */
     .cam-capture-btn {
-      width: 72px; height: 72px; border-radius: 50%;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
       background: transparent;
-      border: 3px solid rgba(255,255,255,0.85);
-      cursor: pointer; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
+      border: 3px solid rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       transition: transform .12s;
       padding: 0;
     }
+
     .cam-capture-btn::after {
       content: '';
-      width: 56px; height: 56px; border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
       background: #fff;
       display: block;
       transition: background .12s;
     }
-    .cam-capture-btn:active { transform: scale(0.91); }
-    .cam-capture-btn:active::after { background: #d0d0d0; }
+
+    .cam-capture-btn:active {
+      transform: scale(0.91);
+    }
+
+    .cam-capture-btn:active::after {
+      background: #d0d0d0;
+    }
 
     /* flip button: solid visible circle */
     .cam-flip-btn {
-      width: 50px; height: 50px; border-radius: 50%;
-      background: rgba(255,255,255,0.18);
-      border: 1.5px solid rgba(255,255,255,0.3);
-      color: #fff; font-size: 22px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
       transition: background .2s, transform .2s;
     }
-    .cam-flip-btn:active { background: rgba(255,255,255,0.32); transform: rotate(180deg); }
+
+    .cam-flip-btn:active {
+      background: rgba(255, 255, 255, 0.32);
+      transform: rotate(180deg);
+    }
 
     @media (min-width: 992px) {
+
       /* Fixed height forces cam-ui content to overflow → scrollbar appears */
-      .hero-card.cam-open { height: 440px; min-height: unset; overflow: hidden; }
+      .hero-card.cam-open {
+        height: 440px;
+        min-height: unset;
+        overflow: hidden;
+      }
     }
+
     @media (max-width: 991px) {
-      .hero-card.cam-open { min-height: 520px; }
-      .cam-circle { width: 200px; height: 200px; }
+      .hero-card.cam-open {
+        min-height: 520px;
+      }
+
+      .cam-circle {
+        width: 200px;
+        height: 200px;
+      }
     }
+
     @media (max-width: 767px) {
-      .cam-header-title { font-size: 18px; }
-      .cam-circle { width: 180px; height: 180px; }
-      .cam-capture-btn { width: 64px; height: 64px; }
-      .cam-capture-btn::after { width: 50px; height: 50px; }
-      .cam-flip-btn { width: 44px; height: 44px; font-size: 18px; }
-      .cam-thumb { width: 44px; height: 44px; }
-      .cam-controls { padding: 0 20px; }
-      .cam-modes { gap: 10px; }
-      .cam-modes span { font-size: 11px; }
-      .hero-card.cam-open { min-height: 480px; }
+      .cam-header-title {
+        font-size: 18px;
+      }
+
+      .cam-circle {
+        width: 180px;
+        height: 180px;
+      }
+
+      .cam-capture-btn {
+        width: 64px;
+        height: 64px;
+      }
+
+      .cam-capture-btn::after {
+        width: 50px;
+        height: 50px;
+      }
+
+      .cam-flip-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+      }
+
+      .cam-thumb {
+        width: 44px;
+        height: 44px;
+      }
+
+      .cam-controls {
+        padding: 0 20px;
+      }
+
+      .cam-modes {
+        gap: 10px;
+      }
+
+      .cam-modes span {
+        font-size: 11px;
+      }
+
+      .hero-card.cam-open {
+        min-height: 480px;
+      }
     }
+
     @media (max-width: 480px) {
-      .cam-circle { width: 155px; height: 155px; }
-      .cam-capture-btn { width: 58px; height: 58px; }
-      .cam-capture-btn::after { width: 44px; height: 44px; }
-      .hero-card.cam-open { min-height: 450px; }
+      .cam-circle {
+        width: 155px;
+        height: 155px;
+      }
+
+      .cam-capture-btn {
+        width: 58px;
+        height: 58px;
+      }
+
+      .cam-capture-btn::after {
+        width: 44px;
+        height: 44px;
+      }
+
+      .hero-card.cam-open {
+        min-height: 450px;
+      }
     }
 
     /* ─── SHARE MODAL ─── */
     .share-modal-bg {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,.65); z-index: 1000;
-      align-items: center; justify-content: center;
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .65);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
     }
-    .share-modal-bg.active { display: flex; }
+
+    .share-modal-bg.active {
+      display: flex;
+    }
+
     .share-box {
-      background: #fff; border-radius: 24px;
-      padding: 28px 24px 22px; width: min(94vw,420px);
-      box-shadow: 0 24px 60px rgba(0,0,0,.35);
-      text-align: center; direction: rtl;
+      background: #fff;
+      border-radius: 24px;
+      padding: 28px 24px 22px;
+      width: min(94vw, 420px);
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+      text-align: center;
+      direction: rtl;
     }
-    .share-title { font-size: 20px; font-weight: 800; color: #111; margin-bottom: 4px; font-family: 'Cairo', sans-serif; }
-    .share-sub   { font-size: 13px; color: #888; margin-bottom: 18px; font-family: 'Cairo', sans-serif; }
+
+    .share-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 4px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .share-sub {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 18px;
+      font-family: 'Cairo', sans-serif;
+    }
+
     .share-preview {
-      width: 110px; height: 110px; border-radius: 50%; overflow: hidden;
-      margin: 0 auto 16px; border: 3px solid var(--green-mid); background: #eee;
-      display: flex; align-items: center; justify-content: center;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 16px;
+      border: 3px solid var(--green-mid);
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .share-preview img { width: 100%; height: 100%; object-fit: cover; display: none; }
-    .share-preview .sp-placeholder { font-size: 36px; color: #ccc; }
+
+    .share-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: none;
+    }
+
+    .share-preview .sp-placeholder {
+      font-size: 36px;
+      color: #ccc;
+    }
+
     .share-msg-box {
-      background: #f8f9fa; border: 1.5px solid #e0e0e0; border-radius: 12px;
-      padding: 12px 14px; margin-bottom: 16px; text-align: right; position: relative;
+      background: #f8f9fa;
+      border: 1.5px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-bottom: 16px;
+      text-align: right;
+      position: relative;
     }
-    .smb-label { font-size: 10px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
-    .smb-text  { font-size: 12px; color: #333; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
-    .smb-edit  {
-      position: absolute; top: 10px; left: 10px;
-      background: none; border: 1px solid #ddd; border-radius: 6px;
-      padding: 3px 8px; font-size: 11px; color: #666; cursor: pointer;
+
+    .smb-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
     }
-    .smb-edit:hover { background: #f0f0f0; }
+
+    .smb-text {
+      font-size: 12px;
+      color: #333;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .smb-edit {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: none;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      color: #666;
+      cursor: pointer;
+    }
+
+    .smb-edit:hover {
+      background: #f0f0f0;
+    }
+
     #shareMsgTextarea {
-      display: none; width: 100%; border: none; background: transparent;
-      font-size: 12px; color: #333; line-height: 1.5; resize: none; outline: none; min-height: 70px;
+      display: none;
+      width: 100%;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      color: #333;
+      line-height: 1.5;
+      resize: none;
+      outline: none;
+      min-height: 70px;
     }
+
     .share-btns-grid {
-      display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 14px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
     }
+
     .share-btn-item {
-      display: flex; flex-direction: column; align-items: center; gap: 5px;
-      padding: 12px 6px; border-radius: 14px; cursor: pointer; text-decoration: none;
-      border: 1.5px solid #eee; transition: transform .15s, box-shadow .15s, border-color .15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 12px 6px;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      border: 1.5px solid #eee;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
       background: #fafafa;
     }
-    .share-btn-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,.12); border-color: #ddd; }
-    .sbi-icon { font-size: 26px; line-height: 1; }
-    .sbi-label { font-size: 10px; font-weight: 700; color: #333; font-family: 'Cairo', sans-serif; }
-    .sbi-wa .sbi-icon { color: #25d366; }
-    .sbi-fb .sbi-icon { color: #1877f2; }
-    .sbi-ig .sbi-icon { background: radial-gradient(circle at 30% 110%,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .sbi-tw .sbi-icon { color: #1da1f2; }
-    .sbi-tg .sbi-icon { color: #229ed9; }
-    .sbi-cp .sbi-icon { color: #555; }
-    .btn-native-share {
-      display: none; width: 100%; background: var(--green-mid); color: #fff;
-      border: none; border-radius: 14px; padding: 14px; font-size: 15px; font-weight: 700;
-      cursor: pointer; margin-bottom: 12px; transition: background .2s;
-      align-items: center; justify-content: center; gap: 8px;
+
+    .share-btn-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+      border-color: #ddd;
+    }
+
+    .sbi-icon {
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .sbi-label {
+      font-size: 10px;
+      font-weight: 700;
+      color: #333;
       font-family: 'Cairo', sans-serif;
     }
-    .btn-native-share:hover { background: #004734; }
-    .share-note { font-size: 11px; color: #aaa; margin-top: 8px; margin-bottom: 0; font-family: 'Cairo', sans-serif; }
-    .share-modal-close {
-      margin-top: 14px; background: none; border: 1.5px solid #ddd;
-      border-radius: 10px; padding: 9px 28px; font-size: 14px; font-weight: 600;
-      color: #555; cursor: pointer; transition: background .2s; font-family: 'Cairo', sans-serif;
+
+    .sbi-wa .sbi-icon {
+      color: #25d366;
     }
-    .share-modal-close:hover { background: #f5f5f5; }
+
+    .sbi-fb .sbi-icon {
+      color: #1877f2;
+    }
+
+    .sbi-ig .sbi-icon {
+      background: radial-gradient(circle at 30% 110%, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sbi-tw .sbi-icon {
+      color: #1da1f2;
+    }
+
+    .sbi-tg .sbi-icon {
+      color: #229ed9;
+    }
+
+    .sbi-cp .sbi-icon {
+      color: #555;
+    }
+
+    .btn-native-share {
+      display: none;
+      width: 100%;
+      background: var(--green-mid);
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-bottom: 12px;
+      transition: background .2s;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .btn-native-share:hover {
+      background: #004734;
+    }
+
+    .share-note {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 8px;
+      margin-bottom: 0;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .share-modal-close {
+      margin-top: 14px;
+      background: none;
+      border: 1.5px solid #ddd;
+      border-radius: 10px;
+      padding: 9px 28px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #555;
+      cursor: pointer;
+      transition: background .2s;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    .share-modal-close:hover {
+      background: #f5f5f5;
+    }
 
     /* ─── TOAST ─── */
-    #toastBox { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 9999; pointer-events: none; }
+    #toastBox {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      pointer-events: none;
+    }
+
     #toastMsg {
-      background: #1a1a1a; color: #fff; border-radius: 30px;
-      padding: 10px 22px; font-size: 14px; font-weight: 600;
-      box-shadow: 0 4px 20px rgba(0,0,0,.3); opacity: 0; transition: opacity .3s; white-space: nowrap;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
+      opacity: 0;
+      transition: opacity .3s;
+      white-space: nowrap;
       font-family: 'Cairo', sans-serif;
     }
-    #toastMsg.show { opacity: 1; }
 
-    #fileInput, #exportCanvas { display: none; }
+    #toastMsg.show {
+      opacity: 1;
+    }
+
+    #fileInput,
+    #exportCanvas {
+      display: none;
+    }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
-      .main-section { padding: 30px 0 20px; }
-      .action-cards { flex-wrap: wrap; }
-      .action-card  { flex-basis: calc(50% - 6px); }
-      .action-card:last-child { flex-basis: 100%; }
-      .frame-wrapper { max-width: 260px; }
+      .main-section {
+        padding: 30px 0 20px;
+      }
+
+      .action-cards {
+        flex-wrap: nowrap;
+      }
+
+      .action-card {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .action-card:last-child {
+        flex-basis: auto;
+      }
+
+      .frame-wrapper {
+        max-width: 260px;
+      }
     }
+
     /* ─── CARD HERO ─── */
-    body::before { display: none; }
+    body::before {
+      display: none;
+    }
 
     /* Patterns: page ke bilkul left/right edge pe chipke,
        content ke peeche (card z-index:1 se dhak jaate hain) */
@@ -837,19 +1547,27 @@
       pointer-events: none;
       z-index: 0;
     }
-    .bg-pattern-left  { left: 0;  background-image: url('left-patterns.svg'); }
-    .bg-pattern-right { right: 0; background-image: url('right-patterns.svg'); }
+
+    .bg-pattern-left {
+      left: 0;
+      background-image: url('left-patterns.svg');
+    }
+
+    .bg-pattern-right {
+      right: 0;
+      background-image: url('right-patterns.svg');
+    }
 
     .hero-card {
       background: #F6EDEA;
       border-radius: 28px;
-      box-shadow: 0 8px 48px rgba(0,0,0,0.10);
+      box-shadow: 0 8px 48px rgba(0, 0, 0, 0.10);
       padding: 22px 36px 0 36px;
       position: relative;
       overflow: hidden;
       z-index: 2;
       max-width: 920px;
-      margin: 14px auto;
+      margin: 18px auto;
     }
 
     /* ══ CSS GRID layout: desktop 2-col, mobile stacked ══ */
@@ -862,13 +1580,34 @@
       gap: 6px 28px;
       align-items: start;
     }
-    .hg-title   { grid-area: title;   }
-    .hg-frame   { grid-area: frame;   display:flex; flex-direction:column; align-items:center; }
-    .hg-actions { grid-area: actions; }
+
+    .hg-title {
+      grid-area: title;
+    }
+
+    .hg-frame {
+      grid-area: frame;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hg-actions {
+      grid-area: actions;
+    }
 
     /* ══ Title arrows ══ */
-    .title-arrow { width: 26px; height: auto; vertical-align: middle; margin: 0 6px; display: inline; }
-    .hero-title  { display: block; }
+    .title-arrow {
+      width: 26px;
+      height: auto;
+      vertical-align: middle;
+      margin: 0 6px;
+      display: inline;
+    }
+
+    .hero-title {
+      display: block;
+    }
 
     /* ══ Frame size ══ */
     .frame-wrapper {
@@ -877,16 +1616,23 @@
       height: 270px !important;
       max-width: unset !important;
       margin: 0 auto !important;
+      border-radius: 50% !important;
+      overflow: hidden !important;
+      clip-path: circle(50% at 50% 50%) !important;
+      isolation: isolate !important;
     }
+
     /* photo thoda andar, frame bahar tak */
     .photo-bg {
       position: absolute !important;
       inset: 6px !important;
       border-radius: 50% !important;
       overflow: hidden !important;
+      clip-path: circle(50% at 50% 50%) !important;
       z-index: 1 !important;
       background: #dde3ea !important;
     }
+
     #previewCanvas {
       position: absolute !important;
       inset: 0 !important;
@@ -894,18 +1640,21 @@
       height: 100% !important;
       border-radius: 50% !important;
     }
+
     .photo-placeholder {
       position: absolute !important;
       inset: 0 !important;
       border-radius: 50% !important;
       overflow: hidden !important;
+      clip-path: circle(50% at 50% 50%) !important;
       cursor: pointer !important;
       display: flex !important;
       flex-direction: column !important;
       align-items: center !important;
       justify-content: flex-end !important;
-      background: linear-gradient(160deg,#e4eaf0 55%,#ccd6e0 100%) !important;
+      background: linear-gradient(160deg, #e4eaf0 55%, #ccd6e0 100%) !important;
     }
+
     .dummy-silhouette {
       position: relative !important;
       display: flex !important;
@@ -913,37 +1662,57 @@
       align-items: center !important;
       width: 100% !important;
     }
+
     .dummy-head {
-      width: 92px !important; height: 92px !important;
-      border-radius: 50% !important; background: #b5c2cc !important;
-      margin-bottom: 0 !important; flex-shrink: 0 !important;
+      width: 92px !important;
+      height: 92px !important;
+      border-radius: 50% !important;
+      background: #b5c2cc !important;
+      margin-bottom: 0 !important;
+      flex-shrink: 0 !important;
     }
+
     .dummy-body {
-      width: 185px !important; height: 125px !important;
-      border-radius: 92px 92px 0 0 !important; background: #b5c2cc !important;
+      width: 185px !important;
+      height: 125px !important;
+      border-radius: 92px 92px 0 0 !important;
+      background: #b5c2cc !important;
     }
+
     .upload-hint-label {
-      position: absolute !important; bottom: 15% !important; z-index: 2 !important;
-      font-size: 11px !important; color: #7a8a97 !important;
-      background: rgba(255,255,255,.75) !important;
-      border-radius: 20px !important; padding: 4px 14px !important;
+      position: absolute !important;
+      bottom: 15% !important;
+      z-index: 2 !important;
+      font-size: 11px !important;
+      color: #7a8a97 !important;
+      background: rgba(255, 255, 255, .75) !important;
+      border-radius: 20px !important;
+      padding: 4px 14px !important;
     }
+
     /* frame overlay: photo ke upar full size */
     .frame-img-overlay {
       position: absolute !important;
       inset: 0 !important;
-      width: 100% !important; height: 100% !important;
+      width: 100% !important;
+      height: 100% !important;
       object-fit: contain !important;
       z-index: 3 !important;
       opacity: 0;
       pointer-events: none !important;
       transition: opacity .4s ease !important;
-      mix-blend-mode: multiply;
     }
-    .frame-img-overlay.frame-active { opacity: 1 !important; }
+
+    .frame-img-overlay.frame-active {
+      opacity: 1 !important;
+    }
 
     /* ══ Card icons (PNG) ══ */
-    .icon-circle img { width: 26px; height: 26px; object-fit: contain; }
+    .icon-circle img {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+    }
 
     /* ══ MOBILE RESPONSIVE ══ */
     @media (max-width: 991px) {
@@ -955,61 +1724,164 @@
           "actions";
         gap: 20px;
       }
-      .hg-title   { text-align: center; }
-      .gold-divider { margin: 10px auto 16px; }
-      .hero-title { justify-content: center; font-size: 26px; }
-      .hero-sub   { text-align: center; }
-      .frame-wrapper { width: 260px !important; height: 260px !important; }
-      .dummy-head { width: 74px !important; height: 74px !important; }
-      .dummy-body { width: 148px !important; height: 100px !important; border-radius: 74px 74px 0 0 !important; }
-      .action-cards { flex-wrap: wrap; gap: 8px; }
-      .action-card  { flex: 1 1 calc(33% - 8px); min-width: 90px; padding: 12px 6px 10px; }
-      .hero-card { padding: 20px 16px 20px; margin: 16px auto; border-radius: 20px; }
-      .btn-download, .btn-share { font-size: 15px; padding: 13px 16px; }
-      .social-bar { margin-top: 14px; }
+
+      .hg-title {
+        text-align: center;
+      }
+
+      .gold-divider {
+        margin: 10px auto 16px;
+      }
+
+      .hero-title {
+        justify-content: center;
+        font-size: 26px;
+      }
+
+      .hero-sub {
+        text-align: center;
+      }
+
+      .frame-wrapper {
+        width: 260px !important;
+        height: 260px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        clip-path: circle(50% at 50% 50%) !important;
+        isolation: isolate !important;
+      }
+
+      .dummy-head {
+        width: 74px !important;
+        height: 74px !important;
+      }
+
+      .dummy-body {
+        width: 148px !important;
+        height: 100px !important;
+        border-radius: 74px 74px 0 0 !important;
+      }
+
+      .action-cards {
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+
+      .action-card {
+        flex: 1 1 calc(33% - 8px);
+        min-width: 90px;
+        padding: 12px 6px 10px;
+      }
+
+      .hero-card {
+        padding: 20px 16px 20px;
+        margin: 16px auto;
+        border-radius: 20px;
+      }
+
+      .btn-download,
+      .btn-share {
+        font-size: 15px;
+        padding: 13px 16px;
+      }
+
+      .social-bar {
+        margin-top: 14px;
+      }
     }
+
     @media (max-width: 480px) {
-      .hero-title { font-size: 22px; }
-      .frame-wrapper { width: 230px !important; height: 230px !important; }
-      .dummy-head { width: 66px !important; height: 66px !important; }
-      .dummy-body { width: 130px !important; height: 88px !important; border-radius: 65px 65px 0 0 !important; }
-      .action-card { flex: 1 1 calc(33% - 6px); padding: 10px 4px 8px; }
-      .card-label { font-size: 11px; }
-      .card-sub   { font-size: 9px; }
+      .hero-title {
+        font-size: 22px;
+      }
+
+      .frame-wrapper {
+        width: 230px !important;
+        height: 230px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        clip-path: circle(50% at 50% 50%) !important;
+        isolation: isolate !important;
+      }
+
+      .dummy-head {
+        width: 66px !important;
+        height: 66px !important;
+      }
+
+      .dummy-body {
+        width: 130px !important;
+        height: 88px !important;
+        border-radius: 65px 65px 0 0 !important;
+      }
+
+      .action-card {
+        flex: 1 1 calc(33% - 6px);
+        padding: 10px 4px 8px;
+      }
+
+      .card-label {
+        font-size: 11px;
+      }
+
+      .card-sub {
+        font-size: 9px;
+      }
     }
 
     /* ─── RESULT SCREEN ─── */
     .result-screen {
       display: none;
-      position: fixed; inset: 0;
+      position: fixed;
+      inset: 0;
       background: #F6EDEA;
-      z-index: 150;        /* below navbar z-index 200 so navbar stays visible */
+      z-index: 150;
+      /* below navbar z-index 200 so navbar stays visible */
       overflow-y: auto;
-      padding-top: 100px;  /* clear navbar height */
+      padding-top: 100px;
+      /* clear navbar height */
     }
-    .result-screen.active { display: block; }
-    .result-screen > .container { padding-top: 20px; padding-bottom: 24px; }
+
+    .result-screen.active {
+      display: block;
+    }
+
+    .result-screen>.container {
+      padding-top: 20px;
+      padding-bottom: 24px;
+    }
+
     @media (max-width: 991px) {
-      .result-screen { padding-top: 90px; }
+      .result-screen {
+        padding-top: 90px;
+      }
     }
 
     /* result frame — single canvas handles everything */
     .result-frame-wrapper {
-      width: 360px; height: 360px;
+      width: 360px;
+      height: 360px;
       position: relative;
       margin: 0 auto;
       flex-shrink: 0;
       border-radius: 50%;
       overflow: hidden;
     }
+
     /* single canvas fills entire wrapper — JS composites photo + frame */
     .result-frame-wrapper .photo-bg {
-      position: absolute; inset: 0; z-index: 1;
+      position: absolute;
+      inset: 0;
+      z-index: 1;
       background: transparent;
     }
+
     .result-frame-wrapper .photo-bg canvas {
-      width: 100%; height: 100%; display: block;
+      width: 100%;
+      height: 100%;
+      display: block;
     }
+
     /* hide the CSS frame overlay — canvas handles it */
     .result-frame-wrapper .frame-img-overlay {
       display: none !important;
@@ -1017,955 +1889,1033 @@
 
     /* result buttons row */
     .result-btns-row {
-      display: flex; gap: 14px;
+      display: flex;
+      gap: 14px;
       flex-direction: row-reverse;
       margin-top: 20px;
     }
+
     .result-btn-download {
-      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: #015645; color: #fff;
-      border: none; border-radius: 14px; padding: 15px 20px;
-      font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 700;
-      cursor: pointer; transition: background .2s;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #015645;
+      color: #fff;
+      border: none;
+      border-radius: 14px;
+      padding: 15px 20px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s;
     }
-    .result-btn-download:hover { background: #013d31; }
+
+    .result-btn-download:hover {
+      background: #013d31;
+    }
+
     .result-btn-outline {
-      flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: #fff; color: #015645;
-      border: 2px solid #015645; border-radius: 14px; padding: 15px 20px;
-      font-family: 'Cairo', sans-serif; font-size: 16px; font-weight: 700;
-      cursor: pointer; transition: background .2s, color .2s;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #fff;
+      color: #015645;
+      border: 2px solid #015645;
+      border-radius: 14px;
+      padding: 15px 20px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .2s, color .2s;
     }
-    .result-btn-outline:hover { background: #015645; color: #fff; }
+
+    .result-btn-outline:hover {
+      background: #015645;
+      color: #fff;
+    }
 
     /* ── Result screen responsive ── */
     @media (max-width: 991px) {
-      .result-screen { padding-top: 80px; }
-      .result-screen > .container { padding-top: 12px; padding-bottom: 20px; }
+      .result-screen {
+        padding-top: 80px;
+      }
+
+      .result-screen>.container {
+        padding-top: 12px;
+        padding-bottom: 20px;
+      }
 
       /* frame comes FIRST on mobile */
-      #resultScreen .hg-frame  { order: -1; }
+      #resultScreen .hg-frame {
+        order: -1;
+      }
 
       /* center all text on mobile */
-      #resultScreen .hg-title  { text-align: center; }
-      #resultScreen .gold-divider { margin: 8px auto 12px; }
-      #resultScreen .hero-title { justify-content: center; font-size: 22px; }
-      #resultScreen .hero-sub   { text-align: center; font-size: 13px; }
-      #resultScreen .social-bar { justify-content: center; }
-      #resultScreen .social-hint { text-align: center !important; }
+      #resultScreen .hg-title {
+        text-align: center;
+      }
+
+      #resultScreen .gold-divider {
+        margin: 8px auto 12px;
+      }
+
+      #resultScreen .hero-title {
+        justify-content: center;
+        font-size: 22px;
+      }
+
+      #resultScreen .hero-sub {
+        text-align: center;
+        font-size: 13px;
+      }
+
+      #resultScreen .social-bar {
+        justify-content: center;
+      }
+
+      #resultScreen .social-hint {
+        text-align: center !important;
+      }
 
       /* buttons stack vertically */
-      .result-btns-row { flex-direction: column; gap: 10px; margin-top: 14px; }
-      .result-btn-download, .result-btn-outline { font-size: 15px; padding: 13px 16px; width: 100%; }
+      .result-btns-row {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .result-btn-download,
+      .result-btn-outline {
+        font-size: 15px;
+        padding: 13px 16px;
+        width: 100%;
+      }
     }
 
     @media (max-width: 767px) {
-      .result-frame-wrapper { width: 250px; height: 250px; }
+      .result-frame-wrapper {
+        width: 250px;
+        height: 250px;
+      }
     }
 
     @media (max-width: 480px) {
-      .result-screen { padding-top: 72px; }
-      .result-frame-wrapper { width: 210px; height: 210px; }
-      #resultScreen .hero-title { font-size: 19px; }
-      .result-btn-download, .result-btn-outline { font-size: 14px; padding: 12px 14px; }
+      .result-screen {
+        padding-top: 72px;
+      }
+
+      .result-frame-wrapper {
+        width: 210px;
+        height: 210px;
+      }
+
+      #resultScreen .hero-title {
+        font-size: 19px;
+      }
+
+      .result-btn-download,
+      .result-btn-outline {
+        font-size: 14px;
+        padding: 12px 14px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- background patterns on page (behind everything) -->
-<div class="bg-pattern-left"></div>
-<div class="bg-pattern-right"></div>
+  <!-- background patterns on page (behind everything) -->
+  <div class="bg-pattern-left"></div>
+  <div class="bg-pattern-right"></div>
 
-<!-- ════════════════════ NAVBAR ════════════════════ -->
-<nav class="site-navbar">
-  <div class="container">
-    <div class="d-flex align-items-center justify-content-between">
-      <div class="flag-selector-box">
-        <i class="fas fa-chevron-down flag-chevron"></i>
-        <div class="iraq-flag">
-          <div class="r"></div>
-          <div class="w"><span>الله أكبر</span></div>
-          <div class="b"></div>
+  <!-- ════════════════════ NAVBAR ════════════════════ -->
+  <nav class="site-navbar">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="flag-selector-box">
+          <i class="fas fa-chevron-down flag-chevron"></i>
+          <div class="iraq-flag">
+            <div class="r"></div>
+            <div class="w"><span>الله أكبر</span></div>
+            <div class="b"></div>
+          </div>
+        </div>
+        <div>
+          <img src="haya-logo-wide-white.png" alt="صيدلية حيا" class="navbar-logo">
         </div>
       </div>
-      <div>
-        <img src="haya-logo-wide-white.png" alt="صيدلية حيا" class="navbar-logo">
-      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- ════════════════════ MAIN SECTION ════════════════════ -->
-<main class="main-section">
-  <div class="container" style="position:relative; z-index:1;">
-    <div class="hero-card">
+  <!-- ════════════════════ MAIN SECTION ════════════════════ -->
+  <main class="main-section">
+    <div class="container" style="position:relative; z-index:1;">
+      <div class="hero-card">
 
-    <div class="hero-grid">
+        <div class="hero-grid">
 
-      <!-- ══ TITLE SECTION (right on desktop, top on mobile) ══ -->
-      <div class="hg-title">
-        <h1 class="hero-title">
-          <img src="arrow-r.svg" class="title-arrow" alt="">
-          دعم <span class="highlight">العراق</span> في كاس العالم
-          <img src="arrow-l.svg" class="title-arrow" alt="">
-        </h1>
-        <p class="hero-sub">قم برفقاء صورة ملف الشخصي للمنتخب الوطني</p>
-        <p class="hero-sub">صورة بروفايل لدعم منتخب العراق</p>
-        <div class="gold-divider"></div>
-      </div>
+          <!-- ══ TITLE SECTION (right on desktop, top on mobile) ══ -->
+          <div class="hg-title">
+            <h1 class="hero-title">
+              <img src="arrow-r.svg" class="title-arrow" alt="">
+              دعم <span class="highlight">العراق</span> في كاس العالم
+              <img src="arrow-l.svg" class="title-arrow" alt="">
+            </h1>
+            <p class="hero-sub">قم برفقاء صورة ملف الشخصي للمنتخب الوطني</p>
+            <p class="hero-sub">صورة بروفايل لدعم منتخب العراق</p>
+            <div class="gold-divider"></div>
+          </div>
 
-      <!-- ══ FRAME SECTION (left on desktop, middle on mobile) ══ -->
-      <div class="hg-frame">
-        <div class="frame-wrapper" id="frameWrapper">
-          <div class="photo-bg" id="photoBg">
-            <canvas id="previewCanvas"></canvas>
-            <div class="photo-placeholder" id="placeholder"
-              onclick="document.getElementById('fileInput').click()">
-              <div class="dummy-silhouette">
-                <div class="dummy-head"></div>
-                <div class="dummy-body"></div>
+          <!-- ══ FRAME SECTION (left on desktop, middle on mobile) ══ -->
+          <div class="hg-frame">
+            <div class="frame-wrapper" id="frameWrapper">
+              <div class="photo-bg" id="photoBg">
+                <canvas id="previewCanvas"></canvas>
+                <div class="photo-placeholder" id="placeholder" onclick="document.getElementById('fileInput').click()">
+                  <div class="dummy-silhouette">
+                    <div class="dummy-head"></div>
+                    <div class="dummy-body"></div>
+                  </div>
+                </div>
               </div>
+              <img id="framePng" class="frame-img-overlay frame-active" src="frame.svg" crossorigin="anonymous"
+                alt="إطار حيا" onload="pngLoaded=true;"
+                onerror="pngLoaded=false; console.warn('frame.svg not found.');" />
             </div>
-          </div>
-          <img id="framePng" class="frame-img-overlay frame-active" src="frame.svg"
-            crossorigin="anonymous" alt="إطار حيا"
-            onload="pngLoaded=true;"
-            onerror="pngLoaded=false; console.warn('frame.svg not found.');"
-          />
-        </div>
-        <div class="social-bar">
-          <span class="social-hint">شارك على منصاتك والشبكات والانستاغرام</span>
-          <a href="#" class="soc-link wa-ic" id="footerWa" title="واتساب"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" class="soc-link ig-ic" id="footerIg" title="انستغرام"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="soc-link fb-ic" id="footerFb" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-        </div>
-      </div>
-
-      <!-- ══ ACTIONS SECTION (right-bottom on desktop, bottom on mobile) ══ -->
-      <div class="hg-actions">
-        <div class="action-cards">
-
-          <div class="action-card" onclick="openGalleryModal()">
-            <div class="icon-circle ic-green">
-              <img src="d.png" alt="upload">
-            </div>
-            <div class="card-label">تحميل الصورة</div>
-            <div class="card-sub">قم بتحميل الصورة من الجهاز</div>
-          </div>
-
-          <div class="action-card" onclick="openCameraModal()">
-            <div class="icon-circle ic-red">
-              <img src="camera.png" alt="camera">
-            </div>
-            <div class="card-label">التقاط صورة</div>
-            <div class="card-sub">استخدم الكاميرا للالتقاط</div>
-          </div>
-
-          <div class="action-card" id="applyFrameBtn" onclick="toggleFrame()">
-            <div class="icon-circle ic-gold">
-              <img src="makrs.png" alt="frame">
-              <span id="applyFrameIcon" style="display:none;">✨</span>
-            </div>
-            <div class="card-label" id="applyFrameLabel">تطبيق الإطار</div>
-            <div class="card-sub" id="applyFrameSub">أضف إطار لدعم العراق</div>
-            <span id="applyFrameArrow" style="display:none;"></span>
-          </div>
-
-        </div>
-
-        <button class="btn-download" id="downloadBtn" onclick="downloadAndShare()" disabled>
-          <span><img src="down.png" alt="" style="width:22px;height:22px;object-fit:contain;margin-left:8px;vertical-align:middle;">تحميل الصورة</span>
-          <span class="dl-sub" id="downloadBtnSub">احفظ صورتك مع إطار الدعم للعراق</span>
-        </button>
-
-        <div id="shareRowWrap" style="display:none;">
-          <button class="btn-share" onclick="openShareModal()">
-            <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
-            <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
-          </button>
-        </div>
-      </div><!-- /hg-actions -->
-
-    </div><!-- /hero-grid -->
-
-    <!-- Footer bar inside card -->
-    <div class="card-footer-bar">
-      <div class="card-footer-inner">
-        <div class="card-footer-item">
-          <i class="fas fa-shield-alt"></i>
-          <span>Show your pride. Support Iraq. Together to victory!</span>
-        </div>
-        <div class="card-footer-divider"></div>
-        <div class="card-footer-item">
-          <i class="fas fa-heart"></i>
-          <span>Haya Pharmacy — Your Partner for Wellbeing</span>
-        </div>
-      </div>
-    </div>
-
-      <!-- ════ CAMERA UI (overlays card) ════ -->
-      <div class="cam-ui" id="webcamModal">
-        <div class="cam-header">
-          <button class="cam-header-btn" onclick="closeWebcam()">يلغي</button>
-          <h2 class="cam-header-title">التقط صورة</h2>
-          <button class="cam-header-btn" onclick="flipCamera()" id="camFacingBtn">أمام</button>
-        </div>
-        <p class="cam-iraq-hint">✓ معاينة إطار العراق نشطة</p>
-        <div class="cam-viewport-wrap">
-          <div class="cam-circle" id="camCircle">
-            <video id="webcamVideo" autoplay playsinline muted></video>
-          </div>
-          <p class="cam-face-hint">قم بمحاذاة وجهك هنا</p>
-        </div>
-        <div class="cam-bottom">
-          <div class="cam-modes">
-            <span>تلقائي</span>
-            <span>صورة</span>
-            <span class="active">PHOTO</span>
-            <span>PORTRAIT</span>
-            <span>فيدو</span>
-          </div>
-          <div class="cam-controls">
-            <div class="cam-thumb" id="camThumb"></div>
-            <button class="cam-capture-btn" onclick="captureWebcam()"></button>
-            <button class="cam-flip-btn" onclick="flipCamera()">
-              <i class="fas fa-sync-alt"></i>
+            <button class="btn-share" style="margin-top:14px;" onclick="openShareModal()">
+              <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
+              <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
             </button>
           </div>
-        </div>
-      </div>
 
-    </div><!-- /hero-card -->
-  </div><!-- /container -->
+          <!-- ══ ACTIONS SECTION (right-bottom on desktop, bottom on mobile) ══ -->
+          <div class="hg-actions">
+            <div class="action-cards">
 
-</main>
+              <div class="action-card" onclick="openGalleryModal()">
+                <div class="icon-circle ic-green">
+                  <img src="d.png" alt="upload">
+                </div>
+                <div class="card-label">تحميل الصورة</div>
+                <div class="card-sub">قم بتحميل الصورة من الجهاز</div>
+              </div>
 
-<!-- ════════════════════ RESULT SCREEN ════════════════════ -->
-<div class="result-screen" id="resultScreen">
-  <div class="container" style="position:relative;z-index:1;">
-    <div class="hero-card">
-      <div class="hero-grid">
+              <div class="action-card" onclick="openCameraModal()">
+                <div class="icon-circle ic-red">
+                  <img src="camera.png" alt="camera">
+                </div>
+                <div class="card-label">التقاط صورة</div>
+                <div class="card-sub">استخدم الكاميرا للالتقاط</div>
+              </div>
 
-        <!-- RIGHT: title + social -->
-        <div class="hg-title result-right-col">
-          <h1 class="hero-title">
-            <img src="arrow-r.svg" class="title-arrow" alt="">
-            الإطار الخاص بك جاهز!
-            <img src="arrow-l.svg" class="title-arrow" alt="">
-          </h1>
-          <p class="hero-sub">أقر أحدى التنازل أو المشاركة مباشرة</p>
-          <div class="gold-divider"></div>
-          <div class="social-bar" style="justify-content:flex-start; margin-top:10px;">
-            <a href="#" class="soc-link wa-ic" onclick="shareResultWa(event)"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="soc-link ig-ic" onclick="shareResultIg(event)"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="soc-link fb-ic" onclick="shareResultFb(event)"><i class="fab fa-facebook-f"></i></a>
-          </div>
-          <p class="social-hint" style="text-align:right; margin-top:8px;">شارك صورة الملف الشخصي على واتساب والمنصات وانستغرام</p>
-        </div>
+              <div class="action-card" id="applyFrameBtn" onclick="toggleFrame()">
+                <div class="icon-circle ic-gold">
+                  <img src="makrs.png" alt="frame">
+                  <span id="applyFrameIcon" style="display:none;">✨</span>
+                </div>
+                <div class="card-label" id="applyFrameLabel">تطبيق الإطار</div>
+                <div class="card-sub" id="applyFrameSub">أضف إطار لدعم العراق</div>
+                <span id="applyFrameArrow" style="display:none;"></span>
+              </div>
 
-        <!-- LEFT: photo with frame -->
-        <div class="hg-frame">
-          <div class="result-frame-wrapper" id="resultFrameWrapper">
-            <div class="photo-bg">
-              <canvas id="resultCanvas"></canvas>
             </div>
-            <img class="frame-img-overlay" src="frame.svg" alt="frame">
+
+            <button class="btn-download" id="downloadBtn" onclick="downloadAndShare()" disabled>
+              <span><img src="down.png" alt=""
+                  style="width:22px;height:22px;object-fit:contain;margin-left:8px;vertical-align:middle;">تحميل
+                الصورة</span>
+              <span class="dl-sub" id="downloadBtnSub">احفظ صورتك مع إطار الدعم للعراق</span>
+            </button>
+
+            <div id="shareRowWrap" style="display:none;">
+              <button class="btn-share" onclick="openShareModal()">
+                <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
+                <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
+              </button>
+            </div>
+          </div><!-- /hg-actions -->
+
+        </div><!-- /hero-grid -->
+
+        <!-- Footer bar inside card -->
+        <div class="card-footer-bar">
+          <div class="card-footer-inner">
+            <div class="card-footer-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Show your pride. Support Iraq. Together to victory!</span>
+            </div>
+            <div class="card-footer-divider"></div>
+            <div class="card-footer-item">
+              <i class="fas fa-heart"></i>
+              <span>Haya Pharmacy — Your Partner for Wellbeing</span>
+            </div>
           </div>
         </div>
 
-        <!-- BOTTOM: two buttons -->
-        <div class="hg-actions">
-          <div class="result-btns-row">
-            <button class="result-btn-outline" onclick="tryAnotherPhoto()">
-              <i class="fas fa-redo-alt"></i> جاول صورة أخرى
-            </button>
-            <button class="result-btn-download" onclick="downloadResultPhoto()">
-              <img src="down.png" alt="" style="width:18px;height:18px;object-fit:contain;"> تنزيل الصورة
-            </button>
+        <!-- ════ CAMERA UI (overlays card) ════ -->
+        <div class="cam-ui" id="webcamModal">
+          <div class="cam-header">
+            <button class="cam-header-btn" onclick="closeWebcam()">يلغي</button>
+            <h2 class="cam-header-title">التقط صورة</h2>
+            <button class="cam-header-btn" onclick="flipCamera()" id="camFacingBtn">أمام</button>
+          </div>
+          <p class="cam-iraq-hint">✓ معاينة إطار العراق نشطة</p>
+          <div class="cam-viewport-wrap">
+            <div class="cam-circle" id="camCircle">
+              <video id="webcamVideo" autoplay playsinline muted></video>
+            </div>
+            <p class="cam-face-hint">قم بمحاذاة وجهك هنا</p>
+          </div>
+          <div class="cam-bottom">
+            <div class="cam-modes">
+              <span>تلقائي</span>
+              <span>صورة</span>
+              <span class="active">PHOTO</span>
+              <span>PORTRAIT</span>
+              <span>فيدو</span>
+            </div>
+            <div class="cam-controls">
+              <div class="cam-thumb" id="camThumb"></div>
+              <button class="cam-capture-btn" onclick="captureWebcam()"></button>
+              <button class="cam-flip-btn" onclick="flipCamera()">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+            </div>
           </div>
         </div>
 
-      </div><!-- /hero-grid -->
+      </div><!-- /hero-card -->
+    </div><!-- /container -->
 
-      <!-- card footer -->
-      <div class="card-footer-bar">
-        <div class="card-footer-inner">
-          <div class="card-footer-item">
-            <i class="fas fa-shield-alt"></i>
-            <span>Show your pride. Support Iraq. Together to victory!</span>
+  </main>
+
+  <!-- ════════════════════ RESULT SCREEN ════════════════════ -->
+  <div class="result-screen" id="resultScreen">
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="hero-card">
+        <div class="hero-grid">
+
+          <!-- RIGHT: title + social -->
+          <div class="hg-title result-right-col">
+            <h1 class="hero-title">
+              <img src="arrow-r.svg" class="title-arrow" alt="">
+              الإطار الخاص بك جاهز!
+              <img src="arrow-l.svg" class="title-arrow" alt="">
+            </h1>
+            <p class="hero-sub">أقر أحدى التنازل أو المشاركة مباشرة</p>
+            <div class="gold-divider"></div>
           </div>
-          <div class="card-footer-divider"></div>
-          <div class="card-footer-item">
-            <i class="fas fa-heart"></i>
-            <span>Haya Pharmacy — Your Partner for Wellbeing</span>
+
+          <!-- LEFT: photo with frame -->
+          <div class="hg-frame">
+            <div class="result-frame-wrapper" id="resultFrameWrapper">
+              <div class="photo-bg">
+                <canvas id="resultCanvas"></canvas>
+              </div>
+              <img class="frame-img-overlay" src="frame.svg" alt="frame">
+            </div>
+          </div>
+
+          <!-- BOTTOM: two buttons -->
+          <div class="hg-actions">
+            <div class="result-btns-row">
+              <button class="result-btn-outline" onclick="tryAnotherPhoto()">
+                <i class="fas fa-redo-alt"></i> جاول صورة أخرى
+              </button>
+              <button class="result-btn-download" onclick="downloadResultPhoto()">
+                <img src="down.png" alt="" style="width:18px;height:18px;object-fit:contain;"> تنزيل الصورة
+              </button>
+            </div>
+            <button class="btn-share" onclick="openShareModal()">
+              <span><i class="fas fa-share-alt" style="margin-left:8px;"></i>شارك صورتك</span>
+              <span class="dl-sub">واتساب، انستغرام، فيسبوك والمزيد</span>
+            </button>
+          </div>
+
+        </div><!-- /hero-grid -->
+
+        <!-- card footer -->
+        <div class="card-footer-bar">
+          <div class="card-footer-inner">
+            <div class="card-footer-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>Show your pride. Support Iraq. Together to victory!</span>
+            </div>
+            <div class="card-footer-divider"></div>
+            <div class="card-footer-item">
+              <i class="fas fa-heart"></i>
+              <span>Haya Pharmacy — Your Partner for Wellbeing</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ════════════════════ PHOTO PICKER MODAL ════════════════════ -->
-<div class="photo-picker-bg" id="photoPickerModal">
-  <div class="photo-picker-inner">
-    <div class="photo-picker-header">
-      <button class="pp-btn-text" onclick="closePhotoPicker()">يلغي</button>
-      <h2>اختر صورة</h2>
-      <button class="pp-btn-text" onclick="useSelectedPhoto()">يختار</button>
-    </div>
-    <div class="photo-picker-grid" id="photoGrid"></div>
-    <div class="photo-picker-footer">
-      <button class="pp-use-btn" id="ppUseBtn" onclick="useSelectedPhoto()">أستخدم هذه الصورة</button>
+  <!-- ════════════════════ PHOTO PICKER MODAL ════════════════════ -->
+  <div class="photo-picker-bg" id="photoPickerModal">
+    <div class="photo-picker-inner">
+      <div class="photo-picker-header">
+        <button class="pp-btn-text" onclick="closePhotoPicker()">يلغي</button>
+        <h2>اختر صورة</h2>
+        <button class="pp-btn-text" onclick="useSelectedPhoto()">يختار</button>
+      </div>
+      <div class="photo-picker-grid" id="photoGrid"></div>
+      <div class="photo-picker-footer">
+        <button class="pp-use-btn" id="ppUseBtn" onclick="useSelectedPhoto()">أستخدم هذه الصورة</button>
+      </div>
     </div>
   </div>
-</div>
-<input type="file" id="multiFileInput" accept="image/*" multiple style="display:none">
+  <input type="file" id="multiFileInput" accept="image/*" multiple style="display:none">
 
-<!-- ════════════════════ GALLERY PERMISSION MODAL ════════════════════ -->
-<div class="gallery-modal-bg" id="galleryModal" onclick="closeGalleryModal(event)">
-  <div class="gallery-sheet">
-    <div class="gallery-sheet-handle"></div>
-    <div class="gallery-cam-icon">
-      <img src="camera.png" alt="camera" style="width:38px;height:38px;object-fit:contain;">
+  <!-- ════════════════════ GALLERY PERMISSION MODAL ════════════════════ -->
+  <div class="gallery-modal-bg" id="galleryModal" onclick="closeGalleryModal(event)">
+    <div class="gallery-sheet">
+      <div class="gallery-sheet-handle"></div>
+      <div class="gallery-cam-icon">
+        <img src="camera.png" alt="camera" style="width:38px;height:38px;object-fit:contain;">
+      </div>
+      <h2 class="gallery-title">الوصول إلى الصور الخاصة بك</h2>
+      <p class="gallery-sub">يحتاج إطار حيا إلى الوصول إلى معرض الصور الخاص بك لاختيار صورة لتحويلك الشخصية</p>
+      <button class="gallery-btn-allow" onclick="allowGallery()">السماح بالوصول إلى المعرض</button>
+      <button class="gallery-btn-cancel" onclick="closeGalleryModal()">ليس الآن</button>
     </div>
-    <h2 class="gallery-title">الوصول إلى الصور الخاصة بك</h2>
-    <p class="gallery-sub">يحتاج إطار حيا إلى الوصول إلى معرض الصور الخاص بك لاختيار صورة لتحويلك الشخصية</p>
-    <button class="gallery-btn-allow" onclick="allowGallery()">السماح بالوصول إلى المعرض</button>
-    <button class="gallery-btn-cancel" onclick="closeGalleryModal()">ليس الآن</button>
   </div>
-</div>
 
-<!-- ════════════════════ CAMERA PERMISSION MODAL ════════════════════ -->
-<div class="gallery-modal-bg" id="cameraModal" onclick="closeCameraModal(event)">
-  <div class="gallery-sheet">
-    <div class="gallery-sheet-handle"></div>
-    <div class="gallery-cam-icon" style="background:#f0f0f0;">
-      <img src="mo.png" alt="camera" style="width:44px;height:44px;object-fit:contain;">
+  <!-- ════════════════════ CAMERA PERMISSION MODAL ════════════════════ -->
+  <div class="gallery-modal-bg" id="cameraModal" onclick="closeCameraModal(event)">
+    <div class="gallery-sheet">
+      <div class="gallery-sheet-handle"></div>
+      <div class="gallery-cam-icon" style="background:#f0f0f0;">
+        <img src="mo.png" alt="camera" style="width:44px;height:44px;object-fit:contain;">
+      </div>
+      <h2 class="gallery-title">السماح بالوصول إلى الكاميرا</h2>
+      <p class="gallery-sub">يحتاج إطار حيا إلى الوصول إلى كاميرتك لالتقاط صورة شخصية ودعم منتخب العراق</p>
+      <button class="gallery-btn-allow" onclick="allowCamera()">بالسماح بالكاميرا</button>
+      <button class="gallery-btn-cancel" onclick="closeCameraModal()">لا تسمح</button>
     </div>
-    <h2 class="gallery-title">الوصول إلى الكاميرا</h2>
-    <p class="gallery-sub">يحتاج إطار حيا إلى الوصول إلى كاميرتك لالتقاط صورة شخصية ودعم منتخب العراق</p>
-    <button class="gallery-btn-allow" onclick="allowCamera()">السماح بالوصول إلى الكاميرا</button>
-    <button class="gallery-btn-cancel" onclick="closeCameraModal()">ليس الآن</button>
   </div>
-</div>
 
 
-<!-- ════════════════════ SHARE MODAL ════════════════════ -->
-<div class="share-modal-bg" id="shareModal">
-  <div class="share-box">
-    <div class="share-title">🌿 شارك دعمك!</div>
-    <div class="share-sub">صورتك مع إطار دعم منتخب العراق جاهزة</div>
+  <!-- ════════════════════ SHARE MODAL ════════════════════ -->
+  <div class="share-modal-bg" id="shareModal">
+    <div class="share-box">
+      <div class="share-title">🌿 شارك دعمك!</div>
+      <div class="share-sub">صورتك مع إطار دعم منتخب العراق جاهزة</div>
 
-    <div class="share-preview">
-      <img id="sharePreviewImg" src="" alt="Preview"/>
-      <span class="sp-placeholder" id="sharePreviewPlaceholder">
-        <i class="fas fa-image"></i>
-      </span>
+      <div class="share-preview">
+        <img id="sharePreviewImg" src="" alt="Preview" />
+        <span class="sp-placeholder" id="sharePreviewPlaceholder">
+          <i class="fas fa-image"></i>
+        </span>
+      </div>
+
+      <div class="share-msg-box">
+        <div class="smb-label">الرسالة مع المشاركة</div>
+        <div class="smb-text" id="shareMsgDisplay"></div>
+        <textarea id="shareMsgTextarea" rows="4"></textarea>
+        <button class="smb-edit" id="shareMsgEditBtn" onclick="toggleMsgEdit()">✏️ تعديل</button>
+      </div>
+
+      <button class="btn-native-share" id="nativeShareBtn" onclick="nativeShare()">
+        <i class="fas fa-share-alt" style="margin-left:6px;"></i>📎 شارك الصورة والنص معاً
+      </button>
+
+      <div class="share-btns-grid">
+        <a class="share-btn-item sbi-wa" href="#" onclick="shareWhatsApp(event)">
+          <span class="sbi-icon"><i class="fab fa-whatsapp"></i></span>
+          <span class="sbi-label">واتساب</span>
+        </a>
+        <a class="share-btn-item sbi-fb" href="#" onclick="shareFacebook(event)">
+          <span class="sbi-icon"><i class="fab fa-facebook"></i></span>
+          <span class="sbi-label">فيسبوك</span>
+        </a>
+        <a class="share-btn-item sbi-ig" href="#" onclick="shareInstagram(event)">
+          <span class="sbi-icon"><i class="fab fa-instagram"></i></span>
+          <span class="sbi-label">انستغرام</span>
+        </a>
+        <a class="share-btn-item sbi-tw" href="#" onclick="shareTwitter(event)">
+          <span class="sbi-icon"><i class="fab fa-twitter"></i></span>
+          <span class="sbi-label">تويتر / X</span>
+        </a>
+        <a class="share-btn-item sbi-tg" href="#" onclick="shareTelegram(event)">
+          <span class="sbi-icon"><i class="fab fa-telegram"></i></span>
+          <span class="sbi-label">تيليغرام</span>
+        </a>
+        <a class="share-btn-item sbi-cp" href="#" onclick="copyLink(event)">
+          <span class="sbi-icon"><i class="fas fa-link"></i></span>
+          <span class="sbi-label">نسخ الرابط</span>
+        </a>
+      </div>
+
+      <p class="share-note">💡 على الهاتف، اضغط "شارك الصورة والنص معاً" لإرسالهما دفعة واحدة.</p>
+      <button class="share-modal-close" onclick="closeShareModal()">إغلاق</button>
     </div>
-
-    <div class="share-msg-box">
-      <div class="smb-label">الرسالة مع المشاركة</div>
-      <div class="smb-text" id="shareMsgDisplay"></div>
-      <textarea id="shareMsgTextarea" rows="4"></textarea>
-      <button class="smb-edit" id="shareMsgEditBtn" onclick="toggleMsgEdit()">✏️ تعديل</button>
-    </div>
-
-    <button class="btn-native-share" id="nativeShareBtn" onclick="nativeShare()">
-      <i class="fas fa-share-alt" style="margin-left:6px;"></i>📎 شارك الصورة والنص معاً
-    </button>
-
-    <div class="share-btns-grid">
-      <a class="share-btn-item sbi-wa" href="#" onclick="shareWhatsApp(event)">
-        <span class="sbi-icon"><i class="fab fa-whatsapp"></i></span>
-        <span class="sbi-label">واتساب</span>
-      </a>
-      <a class="share-btn-item sbi-fb" href="#" onclick="shareFacebook(event)">
-        <span class="sbi-icon"><i class="fab fa-facebook"></i></span>
-        <span class="sbi-label">فيسبوك</span>
-      </a>
-      <a class="share-btn-item sbi-ig" href="#" onclick="shareInstagram(event)">
-        <span class="sbi-icon"><i class="fab fa-instagram"></i></span>
-        <span class="sbi-label">انستغرام</span>
-      </a>
-      <a class="share-btn-item sbi-tw" href="#" onclick="shareTwitter(event)">
-        <span class="sbi-icon"><i class="fab fa-twitter"></i></span>
-        <span class="sbi-label">تويتر / X</span>
-      </a>
-      <a class="share-btn-item sbi-tg" href="#" onclick="shareTelegram(event)">
-        <span class="sbi-icon"><i class="fab fa-telegram"></i></span>
-        <span class="sbi-label">تيليغرام</span>
-      </a>
-      <a class="share-btn-item sbi-cp" href="#" onclick="copyLink(event)">
-        <span class="sbi-icon"><i class="fas fa-link"></i></span>
-        <span class="sbi-label">نسخ الرابط</span>
-      </a>
-    </div>
-
-    <p class="share-note">💡 على الهاتف، اضغط "شارك الصورة والنص معاً" لإرسالهما دفعة واحدة.</p>
-    <button class="share-modal-close" onclick="closeShareModal()">إغلاق</button>
   </div>
-</div>
 
-<!-- Hidden elements -->
-<input type="file" id="fileInput" accept="image/*"/>
-<canvas id="exportCanvas"></canvas>
-<div id="toastBox"><div id="toastMsg"></div></div>
+  <!-- Hidden elements -->
+  <input type="file" id="fileInput" accept="image/*" />
+  <canvas id="exportCanvas"></canvas>
+  <div id="toastBox">
+    <div id="toastMsg"></div>
+  </div>
 
-<!-- ════════════════════ JS ════════════════════ -->
-<script>
-  /* ── DOM ── */
-  const canvas      = document.getElementById('previewCanvas');
-  const ctx         = canvas.getContext('2d');
-  const placeholder = document.getElementById('placeholder');
-  const fileInput   = document.getElementById('fileInput');
-  const webcamModal = document.getElementById('webcamModal');
-  const webcamVideo = document.getElementById('webcamVideo');
-  const framePng    = document.getElementById('framePng');
-  const applyBtn    = document.getElementById('applyFrameBtn');
-  const downloadBtn = document.getElementById('downloadBtn');
+  <!-- ════════════════════ JS ════════════════════ -->
+  <script>
+    /* ── DOM ── */
+    const canvas = document.getElementById('previewCanvas');
+    const ctx = canvas.getContext('2d');
+    const placeholder = document.getElementById('placeholder');
+    const fileInput = document.getElementById('fileInput');
+    const webcamModal = document.getElementById('webcamModal');
+    const webcamVideo = document.getElementById('webcamVideo');
+    const framePng = document.getElementById('framePng');
+    const applyBtn = document.getElementById('applyFrameBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
 
-  let userImage    = null;
-  let camStream    = null;
-  let pngLoaded    = false;
-  let frameApplied = true;   // frame by default on hai
-  let lastDataUrl  = null;
+    let userImage = null;
+    let camStream = null;
+    let pngLoaded = false;
+    let frameApplied = true;   // frame by default on hai
+    let lastDataUrl = null;
 
-  /* ── Default share message ── */
-  const DEFAULT_SHARE_MSG =
-    '🌿⚽ أنا أدعم منتخب العراق في كأس العالم!\n' +
-    'I support Iraq in the World Cup! 🇮🇶\n\n' +
-    '📸 احصل على إطار دعمك من صيدلية حيا:\n' +
-    window.location.href + '\n\n' +
-    '#العراق #كأس_العالم #صيدلية_حيا\n' +
-    '#Iraq #WorldCup2026 #HayaPharmacy';
+    /* ── Default share message ── */
+    const DEFAULT_SHARE_MSG =
+      '🌿⚽ أنا أدعم منتخب العراق في كأس العالم!\n' +
+      'I support Iraq in the World Cup! 🇮🇶\n\n' +
+      '📸 احصل على إطار دعمك من صيدلية حيا:\n' +
+      window.location.href + '\n\n' +
+      '#العراق #كأس_العالم #صيدلية_حيا\n' +
+      '#Iraq #WorldCup2026 #HayaPharmacy';
 
-  /* ════════════════ CANVAS ════════════════ */
-  function resizeCanvas() {
-    const size = 300;
-    canvas.width = size; canvas.height = size;
-    if (userImage) renderPhoto();
-  }
-  window.addEventListener('resize', resizeCanvas);
-  window.addEventListener('load',   resizeCanvas);
-
-  function renderPhoto() {
-    const S  = canvas.width;
-    ctx.clearRect(0, 0, S, S);
-    const iw = userImage.naturalWidth  || userImage.width  || 640;
-    const ih = userImage.naturalHeight || userImage.height || 480;
-    const sc = Math.max(S/iw, S/ih);
-    const dw = iw*sc, dh = ih*sc;
-    ctx.drawImage(userImage, (S-dw)/2, (S-dh)/2, dw, dh);
-  }
-
-  /* ════════════════ SHOW IMAGE ════════════════ */
-  function showImage(src) {
-    const img = new Image();
-    img.onload = () => {
-      userImage = img;
-      placeholder.style.display = 'none';
-      resizeCanvas();
-      frameApplied = false;
-      framePng.classList.remove('frame-active');
-      updateApplyBtn(); updateDownloadBtn();
-      lastDataUrl = null;
-      document.getElementById('shareRowWrap').style.display = 'none';
-      toast('✅ تم تحميل الصورة! اضغط "تطبيق الإطار" ثم "تحميل الصورة".');
-    };
-    img.onerror = () => toast('❌ تعذر تحميل الصورة.');
-    img.src = src;
-  }
-
-  /* ════════════════ FRAME TOGGLE ════════════════ */
-  function toggleFrame() {
-    if (!userImage) { toast('📸 الرجاء رفع أو التقاط صورة أولاً!'); return; }
-    frameApplied = !frameApplied;
-    framePng.classList.toggle('frame-active', frameApplied);
-    toast(frameApplied ? '🌿 تم تطبيق الإطار! جاهز للتحميل.' : 'تم إزالة الإطار.');
-    updateApplyBtn(); updateDownloadBtn();
-  }
-
-  function updateApplyBtn() {
-    document.getElementById('applyFrameLabel').textContent = frameApplied ? 'تم التطبيق ✓' : 'تطبيق الإطار';
-    document.getElementById('applyFrameSub').textContent   = frameApplied ? 'انقر للإزالة'  : 'أضف إطار لدعم العراق';
-    applyBtn.classList.toggle('applied', frameApplied);
-  }
-
-  function updateDownloadBtn() {
-    const sub = document.getElementById('downloadBtnSub');
-    if (!userImage) { downloadBtn.disabled = true; sub.textContent = 'ارفع صورة أولاً للتحميل'; }
-    else            { downloadBtn.disabled = false; sub.textContent = frameApplied ? 'احفظ صورتك مع إطار الدعم للعراق' : 'تحميل الصورة (ينصح بتطبيق الإطار أولاً)'; }
-  }
-
-  /* ════════════════ FILE UPLOAD ════════════════ */
-  fileInput.addEventListener('change', function () {
-    const file = this.files[0]; if (!file) return;
-    const reader = new FileReader();
-    reader.onload = e => showImage(e.target.result);
-    reader.readAsDataURL(file);
-    this.value = '';
-  });
-
-  /* ════════════════ GALLERY MODAL ════════════════ */
-  function openGalleryModal() {
-    document.getElementById('galleryModal').classList.add('active');
-  }
-  function closeGalleryModal(e) {
-    if (!e || e.target === document.getElementById('galleryModal')) {
-      document.getElementById('galleryModal').classList.remove('active');
+    /* ════════════════ CANVAS ════════════════ */
+    function resizeCanvas() {
+      const size = 300;
+      canvas.width = size; canvas.height = size;
+      if (userImage) renderPhoto();
     }
-  }
-  function allowGallery() {
-    document.getElementById('galleryModal').classList.remove('active');
-    document.getElementById('multiFileInput').click();
-  }
+    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('load', resizeCanvas);
 
-  /* ════════════════ PHOTO PICKER ════════════════ */
-  let selectedPhotoSrc = null;
+    function renderPhoto() {
+      const S = canvas.width;
+      ctx.clearRect(0, 0, S, S);
+      const iw = userImage.naturalWidth || userImage.width || 640;
+      const ih = userImage.naturalHeight || userImage.height || 480;
+      const sc = Math.max(S / iw, S / ih);
+      const dw = iw * sc, dh = ih * sc;
+      ctx.drawImage(userImage, (S - dw) / 2, (S - dh) / 2, dw, dh);
+    }
 
-  document.getElementById('multiFileInput').addEventListener('change', function() {
-    const files = Array.from(this.files);
-    if (!files.length) return;
-    const grid = document.getElementById('photoGrid');
-    grid.innerHTML = '';
-    selectedPhotoSrc = null;
-    document.getElementById('ppUseBtn').classList.remove('ready');
+    /* ════════════════ SHOW IMAGE ════════════════ */
+    function showImage(src) {
+      const img = new Image();
+      img.onload = () => {
+        userImage = img;
+        placeholder.style.display = 'none';
+        resizeCanvas();
+        frameApplied = false;
+        framePng.classList.remove('frame-active');
+        updateApplyBtn(); updateDownloadBtn();
+        lastDataUrl = null;
+        document.getElementById('shareRowWrap').style.display = 'none';
+        toast('✅ تم تحميل الصورة! اضغط "تطبيق الإطار" ثم "تحميل الصورة".');
+      };
+      img.onerror = () => toast('❌ تعذر تحميل الصورة.');
+      img.src = src;
+    }
 
-    files.forEach(file => {
+    /* ════════════════ FRAME TOGGLE ════════════════ */
+    function toggleFrame() {
+      if (!userImage) { toast('📸 الرجاء رفع أو التقاط صورة أولاً!'); return; }
+      frameApplied = !frameApplied;
+      framePng.classList.toggle('frame-active', frameApplied);
+      toast(frameApplied ? '🌿 تم تطبيق الإطار! جاهز للتحميل.' : 'تم إزالة الإطار.');
+      updateApplyBtn(); updateDownloadBtn();
+    }
+
+    function updateApplyBtn() {
+      document.getElementById('applyFrameLabel').textContent = frameApplied ? 'تم التطبيق ✓' : 'تطبيق الإطار';
+      document.getElementById('applyFrameSub').textContent = frameApplied ? 'انقر للإزالة' : 'أضف إطار لدعم العراق';
+      applyBtn.classList.toggle('applied', frameApplied);
+    }
+
+    function updateDownloadBtn() {
+      const sub = document.getElementById('downloadBtnSub');
+      if (!userImage) { downloadBtn.disabled = true; sub.textContent = 'ارفع صورة أولاً للتحميل'; }
+      else { downloadBtn.disabled = false; sub.textContent = frameApplied ? 'احفظ صورتك مع إطار الدعم للعراق' : 'تحميل الصورة (ينصح بتطبيق الإطار أولاً)'; }
+    }
+
+    /* ════════════════ FILE UPLOAD ════════════════ */
+    fileInput.addEventListener('change', function () {
+      const file = this.files[0]; if (!file) return;
       const reader = new FileReader();
-      reader.onload = function(e) {
-        const item = document.createElement('div');
-        item.className = 'pp-photo-item';
-        item.innerHTML = `
+      reader.onload = e => showImage(e.target.result);
+      reader.readAsDataURL(file);
+      this.value = '';
+    });
+
+    /* ════════════════ GALLERY MODAL ════════════════ */
+    function openGalleryModal() {
+      document.getElementById('galleryModal').classList.add('active');
+    }
+    function closeGalleryModal(e) {
+      if (!e || e.target === document.getElementById('galleryModal')) {
+        document.getElementById('galleryModal').classList.remove('active');
+      }
+    }
+    function allowGallery() {
+      document.getElementById('galleryModal').classList.remove('active');
+      document.getElementById('multiFileInput').click();
+    }
+
+    /* ════════════════ PHOTO PICKER ════════════════ */
+    let selectedPhotoSrc = null;
+
+    document.getElementById('multiFileInput').addEventListener('change', function () {
+      const files = Array.from(this.files);
+      if (!files.length) return;
+      const grid = document.getElementById('photoGrid');
+      grid.innerHTML = '';
+      selectedPhotoSrc = null;
+      document.getElementById('ppUseBtn').classList.remove('ready');
+
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const item = document.createElement('div');
+          item.className = 'pp-photo-item';
+          item.innerHTML = `
           <img src="${e.target.result}" alt="">
           <div class="pp-checkmark"><i class="fas fa-check"></i></div>
         `;
-        item.addEventListener('click', function() {
-          document.querySelectorAll('.pp-photo-item').forEach(el => el.classList.remove('selected'));
-          item.classList.add('selected');
-          selectedPhotoSrc = e.target.result;
-          document.getElementById('ppUseBtn').classList.add('ready');
-        });
-        grid.appendChild(item);
-      };
-      reader.readAsDataURL(file);
-    });
-
-    document.getElementById('photoPickerModal').classList.add('active');
-    this.value = '';
-  });
-
-  function closePhotoPicker() {
-    document.getElementById('photoPickerModal').classList.remove('active');
-    document.getElementById('photoGrid').innerHTML = '';
-    selectedPhotoSrc = null;
-  }
-
-  function useSelectedPhoto() {
-    if (!selectedPhotoSrc) return;
-    const src = selectedPhotoSrc;
-    closePhotoPicker();
-    const img = new Image();
-    img.onload = () => {
-      userImage = img;
-      placeholder.style.display = 'none';
-      resizeCanvas();
-      frameApplied = true;
-      framePng.classList.add('frame-active');
-      updateApplyBtn(); updateDownloadBtn();
-      lastDataUrl = null;
-      showResultScreen();
-    };
-    img.onerror = () => toast('❌ تعذر تحميل الصورة.');
-    img.src = src;
-  }
-
-  /* ════════════════ RESULT SCREEN ════════════════ */
-  // Pre-process frame: remove semi-transparent gray center → real transparent hole
-  function buildFrameCanvas(srcImg, size) {
-    const off = document.createElement('canvas');
-    off.width = size; off.height = size;
-    const oc = off.getContext('2d');
-    oc.drawImage(srcImg, 0, 0, size, size);
-    const imgData = oc.getImageData(0, 0, size, size);
-    const d = imgData.data;
-    for (let i = 0; i < d.length; i += 4) {
-      const r = d[i], g = d[i+1], b = d[i+2], a = d[i+3];
-      // gray/white semi-transparent center pixels → fully transparent
-      if (a < 220 && Math.abs(r - g) < 30 && Math.abs(g - b) < 30 && r > 80) {
-        d[i+3] = 0;
-      }
-    }
-    oc.putImageData(imgData, 0, 0);
-    return off;
-  }
-
-  function renderResultCanvas(size) {
-    const rc = document.getElementById('resultCanvas');
-    rc.width = size; rc.height = size;
-    const ctx = rc.getContext('2d');
-    ctx.clearRect(0, 0, size, size);
-
-    ctx.save();
-    ctx.beginPath();
-    ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-    ctx.clip();
-
-    // draw photo scaled to inner ring only (inner circle ≈ 78% of wrapper)
-    const photoSize = size * 0.78;
-    const iw = userImage.naturalWidth || 640;
-    const ih = userImage.naturalHeight || 480;
-    const sc = Math.max(photoSize / iw, photoSize / ih);
-    const dw = iw * sc, dh = ih * sc;
-    ctx.drawImage(userImage, (size - dw) / 2, (size - dh) / 2, dw, dh);
-
-    // load frame → strip gray center → draw vivid ring on top (normal blend)
-    const fi = new Image();
-    fi.onload = () => {
-      const processedFrame = buildFrameCanvas(fi, size);
-      ctx.drawImage(processedFrame, 0, 0);
-      ctx.restore();
-    };
-    fi.onerror = () => { ctx.restore(); };
-    fi.src = 'frame.svg';
-  }
-
-  function showResultScreen() {
-    const rs = document.getElementById('resultScreen');
-    rs.classList.add('active');
-    rs.scrollTop = 0;
-    requestAnimationFrame(() => {
-      const wrapper = document.getElementById('resultFrameWrapper');
-      const size = wrapper.offsetWidth || 360;
-      renderResultCanvas(size);
-    });
-  }
-
-  function tryAnotherPhoto() {
-    document.getElementById('resultScreen').classList.remove('active');
-    openGalleryModal();
-  }
-
-  async function downloadResultPhoto() {
-    if (!userImage) return;
-    toast('⏳ جاري تجهيز صورتك…');
-    const SIZE = 1000;
-    const exp = document.createElement('canvas');
-    exp.width = SIZE; exp.height = SIZE;
-    const ec = exp.getContext('2d');
-
-    // clip entire output to circle
-    ec.save();
-    ec.beginPath();
-    ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
-    ec.clip();
-
-    // draw photo scaled to inner ring (78% of total size)
-    const photoSize = SIZE * 0.78;
-    const iw = userImage.naturalWidth || 640;
-    const ih = userImage.naturalHeight || 480;
-    const sc = Math.max(photoSize / iw, photoSize / ih);
-    const dw = iw * sc, dh = ih * sc;
-    ec.drawImage(userImage, (SIZE - dw) / 2, (SIZE - dh) / 2, dw, dh);
-
-    // load frame → strip gray center → draw vivid ring on top
-    const fi = new Image();
-    fi.onload = () => {
-      const processedFrame = buildFrameCanvas(fi, SIZE);
-      ec.drawImage(processedFrame, 0, 0);
-      ec.restore();
-      const a = document.createElement('a');
-      a.download = 'iraq-support-profile.png';
-      a.href = exp.toDataURL('image/png');
-      a.click();
-      toast('⬇️ تم التحميل بنجاح!');
-    };
-    fi.onerror = () => {
-      ec.restore();
-      const a = document.createElement('a');
-      a.download = 'iraq-support-profile.png';
-      a.href = exp.toDataURL('image/png');
-      a.click();
-      toast('⬇️ تم التحميل!');
-    };
-    fi.src = 'frame.svg';
-  }
-
-  function shareResultWa(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على واتساب.'); }
-  function shareResultIg(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم ارفعها على انستغرام.'); }
-  function shareResultFb(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على فيسبوك.'); }
-
-  /* ════════════════ CAMERA PERMISSION MODAL ════════════════ */
-  function openCameraModal() {
-    document.getElementById('cameraModal').classList.add('active');
-  }
-  function closeCameraModal(e) {
-    if (!e || e.target === document.getElementById('cameraModal')) {
-      document.getElementById('cameraModal').classList.remove('active');
-    }
-  }
-  function allowCamera() {
-    document.getElementById('cameraModal').classList.remove('active');
-    openWebcam();
-  }
-
-  /* ════════════════ WEBCAM ════════════════ */
-  let currentFacing = 'user';
-
-  async function openWebcam() {
-    currentFacing = 'user';
-    document.getElementById('camFacingBtn').textContent = 'أمام';
-    await startCamera();
-    webcamModal.classList.add('active');
-    document.querySelector('.hero-card').classList.add('cam-open');
-    document.body.style.overflow = 'auto';
-    document.body.style.height = 'auto';
-  }
-
-  async function startCamera() {
-    if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
-    try {
-      camStream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: currentFacing, width: { ideal: 720 }, height: { ideal: 720 } },
-        audio: false
+          item.addEventListener('click', function () {
+            document.querySelectorAll('.pp-photo-item').forEach(el => el.classList.remove('selected'));
+            item.classList.add('selected');
+            selectedPhotoSrc = e.target.result;
+            document.getElementById('ppUseBtn').classList.add('ready');
+          });
+          grid.appendChild(item);
+        };
+        reader.readAsDataURL(file);
       });
-      webcamVideo.srcObject = camStream;
-    } catch(err) {
-      toast('⚠️ تم رفض الوصول إلى الكاميرا أو غير متاحة.');
-      webcamModal.classList.remove('active');
-    }
-  }
 
-  async function flipCamera() {
-    currentFacing = currentFacing === 'user' ? 'environment' : 'user';
-    document.getElementById('camFacingBtn').textContent = currentFacing === 'user' ? 'أمام' : 'خلف';
-    await startCamera();
-  }
-
-  function captureWebcam() {
-    const vw = webcamVideo.videoWidth || 640, vh = webcamVideo.videoHeight || 480;
-    const side = Math.min(vw, vh), sx = (vw - side) / 2, sy = (vh - side) / 2;
-    const tmp = document.createElement('canvas'); tmp.width = side; tmp.height = side;
-    const tc = tmp.getContext('2d');
-    if (currentFacing === 'user') { tc.translate(side, 0); tc.scale(-1, 1); }
-    tc.drawImage(webcamVideo, sx, sy, side, side, 0, 0, side, side);
-    const src = tmp.toDataURL('image/png');
-    closeWebcam();
-    // show result screen with captured photo
-    const img = new Image();
-    img.onload = () => {
-      userImage = img;
-      placeholder.style.display = 'none';
-      resizeCanvas(); frameApplied = true;
-      framePng.classList.add('frame-active');
-      updateApplyBtn(); updateDownloadBtn();
-      lastDataUrl = null;
-      showResultScreen();
-    };
-    img.src = src;
-  }
-
-  function closeWebcam() {
-    if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
-    webcamVideo.srcObject = null;
-    webcamModal.classList.remove('active');
-    document.querySelector('.hero-card').classList.remove('cam-open');
-    document.body.style.overflow = '';
-    document.body.style.height = '';
-  }
-
-  /* ════════════════ BUILD EXPORT CANVAS ════════════════ */
-  function buildExportCanvas() {
-    return new Promise((resolve, reject) => {
-      if (!userImage) { reject('no image'); return; }
-      const SIZE=800, INSET=0.12, photoR=SIZE*(1-2*INSET)/2, cx=SIZE/2, cy=SIZE/2;
-      const exp=document.getElementById('exportCanvas');
-      exp.width=SIZE; exp.height=SIZE;
-      const ec=exp.getContext('2d');
-
-      // Draw photo clipped to circle
-      const iw=userImage.naturalWidth||userImage.width||640;
-      const ih=userImage.naturalHeight||userImage.height||480;
-      const sc=Math.max((photoR*2)/iw,(photoR*2)/ih);
-      const dw=iw*sc, dh=ih*sc;
-      ec.save();
-      ec.beginPath(); ec.arc(cx,cy,photoR,0,Math.PI*2); ec.clip();
-      ec.drawImage(userImage,cx-dw/2,cy-dh/2,dw,dh);
-      ec.restore();
-
-      if (!frameApplied) { resolve(exp.toDataURL('image/png')); return; }
-
-      const fi=new Image(); fi.crossOrigin='anonymous';
-      fi.onload = () => { ec.drawImage(fi,0,0,SIZE,SIZE); resolve(exp.toDataURL('image/png')); };
-      fi.onerror = () => resolve(exp.toDataURL('image/png'));
-      fi.src='frame.svg?v='+Date.now();
+      document.getElementById('photoPickerModal').classList.add('active');
+      this.value = '';
     });
-  }
 
-  /* ════════════════ DOWNLOAD ════════════════ */
-  async function downloadAndShare() {
-    if (!userImage) { toast('📸 الرجاء رفع أو التقاط صورة أولاً!'); return; }
-    toast('⏳ جاري تجهيز صورتك…');
-    try {
-      const dataUrl = await buildExportCanvas();
-      lastDataUrl   = dataUrl;
-      const a=document.createElement('a'); a.download='iraq-support-profile.png'; a.href=dataUrl; a.click();
-      toast('⬇️ تم التحميل! الآن اضغط "شارك صورتك".');
-      document.getElementById('shareRowWrap').style.display='block';
-      setSharePreview(dataUrl);
-    } catch(e) { toast('❌ حدث خطأ. يرجى المحاولة مرة أخرى.'); }
-  }
-
-  /* ════════════════ SHARE MODAL ════════════════ */
-  function getShareMsg() {
-    return document.getElementById('shareMsgTextarea').value || DEFAULT_SHARE_MSG;
-  }
-
-  function setSharePreview(dataUrl) {
-    const img=document.getElementById('sharePreviewImg');
-    const ph=document.getElementById('sharePreviewPlaceholder');
-    if (dataUrl) { img.src=dataUrl; img.style.display='block'; ph.style.display='none'; }
-    else         { img.style.display='none'; ph.style.display='block'; }
-
-    const ta  = document.getElementById('shareMsgTextarea');
-    const dis = document.getElementById('shareMsgDisplay');
-    if (!ta.value) ta.value = DEFAULT_SHARE_MSG;
-    dis.textContent = ta.value;
-
-    const nBtn = document.getElementById('nativeShareBtn');
-    nBtn.style.display = (typeof navigator.share === 'function') ? 'flex' : 'none';
-  }
-
-  async function openShareModal() {
-    if (!userImage) { toast('📸 ارفع أو التقط صورة أولاً!'); return; }
-    if (!lastDataUrl) {
-      toast('⏳ جاري تجهيز الصورة…');
-      try { lastDataUrl = await buildExportCanvas(); document.getElementById('shareRowWrap').style.display='block'; }
-      catch(e) { toast('❌ تعذر تجهيز الصورة.'); return; }
+    function closePhotoPicker() {
+      document.getElementById('photoPickerModal').classList.remove('active');
+      document.getElementById('photoGrid').innerHTML = '';
+      selectedPhotoSrc = null;
     }
-    setSharePreview(lastDataUrl);
-    document.getElementById('shareModal').classList.add('active');
-  }
 
-  function closeShareModal() {
-    document.getElementById('shareModal').classList.remove('active');
-    const ta=document.getElementById('shareMsgTextarea');
-    const dis=document.getElementById('shareMsgDisplay');
-    dis.textContent = ta.value || DEFAULT_SHARE_MSG;
-    ta.style.display='none'; dis.style.display='block';
-    document.getElementById('shareMsgEditBtn').textContent='✏️ تعديل';
-  }
-
-  function toggleMsgEdit() {
-    const ta=document.getElementById('shareMsgTextarea');
-    const dis=document.getElementById('shareMsgDisplay');
-    const btn=document.getElementById('shareMsgEditBtn');
-    if (ta.style.display==='none' || !ta.style.display) {
-      ta.value = dis.textContent;
-      ta.style.display='block'; dis.style.display='none';
-      btn.textContent='✔ تم';
-      ta.focus();
-    } else {
-      dis.textContent = ta.value;
-      ta.style.display='none'; dis.style.display='block';
-      btn.textContent='✏️ تعديل';
+    function useSelectedPhoto() {
+      if (!selectedPhotoSrc) return;
+      const src = selectedPhotoSrc;
+      closePhotoPicker();
+      const img = new Image();
+      img.onload = () => {
+        userImage = img;
+        placeholder.style.display = 'none';
+        resizeCanvas();
+        frameApplied = true;
+        framePng.classList.add('frame-active');
+        updateApplyBtn(); updateDownloadBtn();
+        lastDataUrl = null;
+        showResultScreen();
+      };
+      img.onerror = () => toast('❌ تعذر تحميل الصورة.');
+      img.src = src;
     }
-  }
 
-  /* ── Native Share ── */
-  async function nativeShare() {
-    if (!navigator.share) { toast('المشاركة المباشرة غير مدعومة — استخدم أحد أزرار المنصات.'); return; }
-    try {
-      const msg  = getShareMsg();
-      const blob = dataURLtoBlob(lastDataUrl);
-      const file = new File([blob], 'iraq-support-haya.png', { type: 'image/png' });
-      const fullPayload = { title: '🌿 دعم العراق – صيدلية حيا ⚽', text: msg, files: [file] };
-      const canShareFiles = navigator.canShare && navigator.canShare(fullPayload);
-      if (canShareFiles) {
-        await navigator.share(fullPayload);
-        toast('✅ تم مشاركة الصورة والرسالة معاً!');
-      } else {
-        await navigator.share({ title: '🌿 دعم العراق – صيدلية حيا ⚽', text: msg, url: window.location.href });
-        toast('✅ تمت المشاركة! أرفق الصورة المحملة يدوياً.');
+    /* ════════════════ RESULT SCREEN ════════════════ */
+    // Pre-process frame: remove semi-transparent gray center → real transparent hole
+    function buildFrameCanvas(srcImg, size) {
+      const off = document.createElement('canvas');
+      off.width = size; off.height = size;
+      const oc = off.getContext('2d');
+      oc.drawImage(srcImg, 0, 0, size, size);
+      const imgData = oc.getImageData(0, 0, size, size);
+      const d = imgData.data;
+      for (let i = 0; i < d.length; i += 4) {
+        const r = d[i], g = d[i + 1], b = d[i + 2], a = d[i + 3];
+        // gray/white semi-transparent center pixels → fully transparent
+        if (a < 220 && Math.abs(r - g) < 30 && Math.abs(g - b) < 30 && r > 80) {
+          d[i + 3] = 0;
+        }
       }
-    } catch (err) {
-      if (err.name !== 'AbortError') toast('تعذرت المشاركة: ' + err.message);
+      oc.putImageData(imgData, 0, 0);
+      return off;
     }
-  }
 
-  function shareWhatsApp(e) {
-    e.preventDefault();
-    window.open('https://wa.me/?text=' + encodeURIComponent(getShareMsg()), '_blank');
-    toast('💬 تم فتح واتساب مع رسالتك!');
-  }
-  function shareFacebook(e) {
-    e.preventDefault();
-    window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
-    toast('📘 تم فتح فيسبوك!');
-  }
-  function shareInstagram(e) {
-    e.preventDefault();
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-      window.location.href = 'instagram://';
-      setTimeout(() => window.open('https://www.instagram.com/', '_blank'), 1200);
-    } else {
-      window.open('https://www.instagram.com/', '_blank');
+    function renderResultCanvas(size) {
+      const rc = document.getElementById('resultCanvas');
+      rc.width = size; rc.height = size;
+      const ctx = rc.getContext('2d');
+      ctx.clearRect(0, 0, size, size);
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      ctx.clip();
+
+      // draw photo scaled to inner ring only (inner circle ≈ 78% of wrapper)
+      const photoSize = size * 0.78;
+      const iw = userImage.naturalWidth || 640;
+      const ih = userImage.naturalHeight || 480;
+      const sc = Math.max(photoSize / iw, photoSize / ih);
+      const dw = iw * sc, dh = ih * sc;
+      ctx.drawImage(userImage, (size - dw) / 2, (size - dh) / 2, dw, dh);
+
+      // load frame → strip gray center → draw vivid ring on top (normal blend)
+      const fi = new Image();
+      fi.onload = () => {
+        const processedFrame = buildFrameCanvas(fi, size);
+        ctx.drawImage(processedFrame, 0, 0);
+        ctx.restore();
+      };
+      fi.onerror = () => { ctx.restore(); };
+      fi.src = 'frame.svg';
     }
-    navigator.clipboard.writeText(getShareMsg()).catch(()=>{});
-    toast('📸 تم فتح انستغرام! تم نسخ التعليق — الصقه عند النشر.');
-  }
-  function shareTwitter(e) {
-    e.preventDefault();
-    const shortMsg = '🌿⚽ I support Iraq in the World Cup! 🇮🇶 #Iraq #WorldCup2026 #HayaPharmacy';
-    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shortMsg) + '&url=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
-  }
-  function shareTelegram(e) {
-    e.preventDefault();
-    window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(getShareMsg()), '_blank');
-    toast('✈️ تم فتح تيليغرام مع رسالتك!');
-  }
-  function copyLink(e) {
-    e.preventDefault();
-    navigator.clipboard.writeText(getShareMsg())
-      .then(() => { toast('📋 تم نسخ الرسالة والرابط!'); closeShareModal(); })
-      .catch(()  => { toast('تعذر النسخ — يرجى النسخ يدوياً.'); });
-  }
 
-  /* ── Footer social icons ── */
-  async function footerShare(platformFn) {
-    if (!userImage) { toast('📸 ارفع صورة أولاً ثم شارك!'); return; }
-    if (!lastDataUrl) {
-      toast('⏳ جاري تجهيز الصورة…');
+    function showResultScreen() {
+      const rs = document.getElementById('resultScreen');
+      rs.classList.add('active');
+      rs.scrollTop = 0;
+      requestAnimationFrame(() => {
+        const wrapper = document.getElementById('resultFrameWrapper');
+        const size = wrapper.offsetWidth || 360;
+        renderResultCanvas(size);
+      });
+    }
+
+    function tryAnotherPhoto() {
+      document.getElementById('resultScreen').classList.remove('active');
+      openGalleryModal();
+    }
+
+    async function downloadResultPhoto() {
+      if (!userImage) return;
+      toast('⏳ جاري تجهيز صورتك…');
+      const SIZE = 1000;
+      const exp = document.createElement('canvas');
+      exp.width = SIZE; exp.height = SIZE;
+      const ec = exp.getContext('2d');
+
+      // clip entire output to circle
+      ec.save();
+      ec.beginPath();
+      ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+      ec.clip();
+
+      // draw photo scaled to inner ring (78% of total size)
+      const photoSize = SIZE * 0.78;
+      const iw = userImage.naturalWidth || 640;
+      const ih = userImage.naturalHeight || 480;
+      const sc = Math.max(photoSize / iw, photoSize / ih);
+      const dw = iw * sc, dh = ih * sc;
+      ec.drawImage(userImage, (SIZE - dw) / 2, (SIZE - dh) / 2, dw, dh);
+
+      // load frame → strip gray center → draw vivid ring on top
+      const fi = new Image();
+      fi.onload = () => {
+        const processedFrame = buildFrameCanvas(fi, SIZE);
+        ec.drawImage(processedFrame, 0, 0);
+        ec.restore();
+        const a = document.createElement('a');
+        a.download = 'iraq-support-profile.png';
+        a.href = exp.toDataURL('image/png');
+        a.click();
+        toast('⬇️ تم التحميل بنجاح!');
+      };
+      fi.onerror = () => {
+        ec.restore();
+        const a = document.createElement('a');
+        a.download = 'iraq-support-profile.png';
+        a.href = exp.toDataURL('image/png');
+        a.click();
+        toast('⬇️ تم التحميل!');
+      };
+      fi.src = 'frame.svg';
+    }
+
+    function shareResultWa(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على واتساب.'); }
+    function shareResultIg(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم ارفعها على انستغرام.'); }
+    function shareResultFb(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على فيسبوك.'); }
+
+    /* ════════════════ CAMERA PERMISSION MODAL ════════════════ */
+    function openCameraModal() {
+      document.getElementById('cameraModal').classList.add('active');
+    }
+    function closeCameraModal(e) {
+      if (!e || e.target === document.getElementById('cameraModal')) {
+        document.getElementById('cameraModal').classList.remove('active');
+      }
+    }
+    function allowCamera() {
+      document.getElementById('cameraModal').classList.remove('active');
+      openWebcam();
+    }
+
+    /* ════════════════ WEBCAM ════════════════ */
+    let currentFacing = 'user';
+
+    async function openWebcam() {
+      currentFacing = 'user';
+      document.getElementById('camFacingBtn').textContent = 'أمام';
+      await startCamera();
+      webcamModal.classList.add('active');
+      document.querySelector('.hero-card').classList.add('cam-open');
+      document.body.style.overflow = 'auto';
+      document.body.style.height = 'auto';
+    }
+
+    async function startCamera() {
+      if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
       try {
-        lastDataUrl = await buildExportCanvas();
-        setSharePreview(lastDataUrl);
-        document.getElementById('shareRowWrap').style.display='block';
-      } catch(e) { toast('❌ تعذر تجهيز الصورة.'); return; }
+        camStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: currentFacing, width: { ideal: 720 }, height: { ideal: 720 } },
+          audio: false
+        });
+        webcamVideo.srcObject = camStream;
+      } catch (err) {
+        toast('⚠️ تم رفض الوصول إلى الكاميرا أو غير متاحة.');
+        webcamModal.classList.remove('active');
+      }
     }
-    platformFn({ preventDefault: ()=>{} });
-  }
 
-  document.getElementById('footerWa').addEventListener('click', e => { e.preventDefault(); footerShare(shareWhatsApp); });
-  document.getElementById('footerIg').addEventListener('click', e => { e.preventDefault(); footerShare(shareInstagram); });
-  document.getElementById('footerFb').addEventListener('click', e => { e.preventDefault(); footerShare(shareFacebook); });
+    async function flipCamera() {
+      currentFacing = currentFacing === 'user' ? 'environment' : 'user';
+      document.getElementById('camFacingBtn').textContent = currentFacing === 'user' ? 'أمام' : 'خلف';
+      await startCamera();
+    }
 
-  /* ── Helpers ── */
-  function dataURLtoBlob(dataURL) {
-    const [header,data]=dataURL.split(',');
-    const mime=header.match(/:(.*?);/)[1];
-    const bytes=atob(data); const arr=new Uint8Array(bytes.length);
-    for(let i=0;i<bytes.length;i++) arr[i]=bytes.charCodeAt(i);
-    return new Blob([arr],{type:mime});
-  }
+    function captureWebcam() {
+      const vw = webcamVideo.videoWidth || 640, vh = webcamVideo.videoHeight || 480;
+      const side = Math.min(vw, vh), sx = (vw - side) / 2, sy = (vh - side) / 2;
+      const tmp = document.createElement('canvas'); tmp.width = side; tmp.height = side;
+      const tc = tmp.getContext('2d');
+      if (currentFacing === 'user') { tc.translate(side, 0); tc.scale(-1, 1); }
+      tc.drawImage(webcamVideo, sx, sy, side, side, 0, 0, side, side);
+      const src = tmp.toDataURL('image/png');
+      closeWebcam();
+      // show result screen with captured photo
+      const img = new Image();
+      img.onload = () => {
+        userImage = img;
+        placeholder.style.display = 'none';
+        resizeCanvas(); frameApplied = true;
+        framePng.classList.add('frame-active');
+        updateApplyBtn(); updateDownloadBtn();
+        lastDataUrl = null;
+        showResultScreen();
+      };
+      img.src = src;
+    }
 
-  function toast(msg) {
-    const el=document.getElementById('toastMsg');
-    el.textContent=msg; el.classList.add('show');
-    clearTimeout(el._t); el._t=setTimeout(()=>el.classList.remove('show'),3500);
-  }
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    function closeWebcam() {
+      if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; }
+      webcamVideo.srcObject = null;
+      webcamModal.classList.remove('active');
+      document.querySelector('.hero-card').classList.remove('cam-open');
+      document.body.style.overflow = '';
+      document.body.style.height = '';
+    }
+
+    /* ════════════════ BUILD EXPORT CANVAS ════════════════ */
+    function buildExportCanvas() {
+      return new Promise((resolve, reject) => {
+        if (!userImage) { reject('no image'); return; }
+        const SIZE = 800, INSET = 0.12, photoR = SIZE * (1 - 2 * INSET) / 2, cx = SIZE / 2, cy = SIZE / 2;
+        const exp = document.getElementById('exportCanvas');
+        exp.width = SIZE; exp.height = SIZE;
+        const ec = exp.getContext('2d');
+
+        // Draw photo clipped to circle
+        const iw = userImage.naturalWidth || userImage.width || 640;
+        const ih = userImage.naturalHeight || userImage.height || 480;
+        const sc = Math.max((photoR * 2) / iw, (photoR * 2) / ih);
+        const dw = iw * sc, dh = ih * sc;
+        ec.save();
+        ec.beginPath(); ec.arc(cx, cy, photoR, 0, Math.PI * 2); ec.clip();
+        ec.drawImage(userImage, cx - dw / 2, cy - dh / 2, dw, dh);
+        ec.restore();
+
+        if (!frameApplied) { resolve(exp.toDataURL('image/png')); return; }
+
+        const fi = new Image(); fi.crossOrigin = 'anonymous';
+        fi.onload = () => { ec.drawImage(fi, 0, 0, SIZE, SIZE); resolve(exp.toDataURL('image/png')); };
+        fi.onerror = () => resolve(exp.toDataURL('image/png'));
+        fi.src = 'frame.svg?v=' + Date.now();
+      });
+    }
+
+    /* ════════════════ DOWNLOAD ════════════════ */
+    async function downloadAndShare() {
+      if (!userImage) { toast('📸 الرجاء رفع أو التقاط صورة أولاً!'); return; }
+      toast('⏳ جاري تجهيز صورتك…');
+      try {
+        const dataUrl = await buildExportCanvas();
+        lastDataUrl = dataUrl;
+        const a = document.createElement('a'); a.download = 'iraq-support-profile.png'; a.href = dataUrl; a.click();
+        toast('⬇️ تم التحميل! الآن اضغط "شارك صورتك".');
+        document.getElementById('shareRowWrap').style.display = 'block';
+        setSharePreview(dataUrl);
+      } catch (e) { toast('❌ حدث خطأ. يرجى المحاولة مرة أخرى.'); }
+    }
+
+    /* ════════════════ SHARE MODAL ════════════════ */
+    function getShareMsg() {
+      return document.getElementById('shareMsgTextarea').value || DEFAULT_SHARE_MSG;
+    }
+
+    function setSharePreview(dataUrl) {
+      const img = document.getElementById('sharePreviewImg');
+      const ph = document.getElementById('sharePreviewPlaceholder');
+      if (dataUrl) { img.src = dataUrl; img.style.display = 'block'; ph.style.display = 'none'; }
+      else { img.style.display = 'none'; ph.style.display = 'block'; }
+
+      const ta = document.getElementById('shareMsgTextarea');
+      const dis = document.getElementById('shareMsgDisplay');
+      if (!ta.value) ta.value = DEFAULT_SHARE_MSG;
+      dis.textContent = ta.value;
+
+      const nBtn = document.getElementById('nativeShareBtn');
+      nBtn.style.display = (typeof navigator.share === 'function') ? 'flex' : 'none';
+    }
+
+    async function openShareModal() {
+      if (userImage && !lastDataUrl) {
+        try { lastDataUrl = await buildExportCanvas(); }
+        catch (e) { }
+      }
+      setSharePreview(lastDataUrl);
+      document.getElementById('shareModal').classList.add('active');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.remove('active');
+      const ta = document.getElementById('shareMsgTextarea');
+      const dis = document.getElementById('shareMsgDisplay');
+      dis.textContent = ta.value || DEFAULT_SHARE_MSG;
+      ta.style.display = 'none'; dis.style.display = 'block';
+      document.getElementById('shareMsgEditBtn').textContent = '✏️ تعديل';
+    }
+
+    function toggleMsgEdit() {
+      const ta = document.getElementById('shareMsgTextarea');
+      const dis = document.getElementById('shareMsgDisplay');
+      const btn = document.getElementById('shareMsgEditBtn');
+      if (ta.style.display === 'none' || !ta.style.display) {
+        ta.value = dis.textContent;
+        ta.style.display = 'block'; dis.style.display = 'none';
+        btn.textContent = '✔ تم';
+        ta.focus();
+      } else {
+        dis.textContent = ta.value;
+        ta.style.display = 'none'; dis.style.display = 'block';
+        btn.textContent = '✏️ تعديل';
+      }
+    }
+
+    /* ── Native Share ── */
+    async function nativeShare() {
+      if (!navigator.share) { toast('المشاركة المباشرة غير مدعومة — استخدم أحد أزرار المنصات.'); return; }
+      try {
+        const msg = getShareMsg();
+        const blob = dataURLtoBlob(lastDataUrl);
+        const file = new File([blob], 'iraq-support-haya.png', { type: 'image/png' });
+        const fullPayload = { title: '🌿 دعم العراق – صيدلية حيا ⚽', text: msg, files: [file] };
+        const canShareFiles = navigator.canShare && navigator.canShare(fullPayload);
+        if (canShareFiles) {
+          await navigator.share(fullPayload);
+          toast('✅ تم مشاركة الصورة والرسالة معاً!');
+        } else {
+          await navigator.share({ title: '🌿 دعم العراق – صيدلية حيا ⚽', text: msg, url: window.location.href });
+          toast('✅ تمت المشاركة! أرفق الصورة المحملة يدوياً.');
+        }
+      } catch (err) {
+        if (err.name !== 'AbortError') toast('تعذرت المشاركة: ' + err.message);
+      }
+    }
+
+    function shareWhatsApp(e) {
+      e.preventDefault();
+      window.open('https://wa.me/?text=' + encodeURIComponent(getShareMsg()), '_blank');
+      toast('💬 تم فتح واتساب مع رسالتك!');
+    }
+    function shareFacebook(e) {
+      e.preventDefault();
+      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+      toast('📘 تم فتح فيسبوك!');
+    }
+    function shareInstagram(e) {
+      e.preventDefault();
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile) {
+        window.location.href = 'instagram://';
+        setTimeout(() => window.open('https://www.instagram.com/', '_blank'), 1200);
+      } else {
+        window.open('https://www.instagram.com/', '_blank');
+      }
+      navigator.clipboard.writeText(getShareMsg()).catch(() => { });
+      toast('📸 تم فتح انستغرام! تم نسخ التعليق — الصقه عند النشر.');
+    }
+    function shareTwitter(e) {
+      e.preventDefault();
+      const shortMsg = '🌿⚽ I support Iraq in the World Cup! 🇮🇶 #Iraq #WorldCup2026 #HayaPharmacy';
+      window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shortMsg) + '&url=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+    }
+    function shareTelegram(e) {
+      e.preventDefault();
+      window.open('https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(getShareMsg()), '_blank');
+      toast('✈️ تم فتح تيليغرام مع رسالتك!');
+    }
+    function copyLink(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(getShareMsg())
+        .then(() => { toast('📋 تم نسخ الرسالة والرابط!'); closeShareModal(); })
+        .catch(() => { toast('تعذر النسخ — يرجى النسخ يدوياً.'); });
+    }
+
+    /* ── Footer social icons ── */
+    async function footerShare(platformFn) {
+      if (!userImage) { toast('📸 ارفع صورة أولاً ثم شارك!'); return; }
+      if (!lastDataUrl) {
+        toast('⏳ جاري تجهيز الصورة…');
+        try {
+          lastDataUrl = await buildExportCanvas();
+          setSharePreview(lastDataUrl);
+          document.getElementById('shareRowWrap').style.display = 'block';
+        } catch (e) { toast('❌ تعذر تجهيز الصورة.'); return; }
+      }
+      platformFn({ preventDefault: () => { } });
+    }
+
+
+    /* ── Helpers ── */
+    function dataURLtoBlob(dataURL) {
+      const [header, data] = dataURL.split(',');
+      const mime = header.match(/:(.*?);/)[1];
+      const bytes = atob(data); const arr = new Uint8Array(bytes.length);
+      for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
+      return new Blob([arr], { type: mime });
+    }
+
+    function toast(msg) {
+      const el = document.getElementById('toastMsg');
+      el.textContent = msg; el.classList.add('show');
+      clearTimeout(el._t); el._t = setTimeout(() => el.classList.remove('show'), 3500);
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
