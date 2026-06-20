@@ -2696,26 +2696,32 @@
     function buildExportCanvas() {
       return new Promise((resolve, reject) => {
         if (!userImage) { reject('no image'); return; }
-        const SIZE = 800, INSET = 0.08, photoR = SIZE * (1 - 2 * INSET) / 2, cx = SIZE / 2, cy = SIZE / 2;
+        const SIZE = 1000;
         const exp = document.getElementById('exportCanvas');
         exp.width = SIZE; exp.height = SIZE;
         const ec = exp.getContext('2d');
 
-        // Draw photo clipped to circle
+        // clip to full circle
+        ec.save();
+        ec.beginPath();
+        ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+        ec.clip();
+
+        // draw photo to fill full circle (cover) — same as result section
         const iw = userImage.naturalWidth || userImage.width || 640;
         const ih = userImage.naturalHeight || userImage.height || 480;
-        const sc = Math.max((photoR * 2) / iw, (photoR * 2) / ih);
+        const sc = Math.max(SIZE / iw, SIZE / ih);
         const dw = iw * sc, dh = ih * sc;
-        ec.save();
-        ec.beginPath(); ec.arc(cx, cy, photoR, 0, Math.PI * 2); ec.clip();
-        ec.drawImage(userImage, cx - dw / 2, cy - dh / 2, dw, dh);
-        ec.restore();
+        ec.drawImage(userImage, (SIZE - dw) / 2, (SIZE - dh) / 2, dw, dh);
 
-        if (!frameApplied) { resolve(exp.toDataURL('image/png')); return; }
-
+        // draw frame on top at full size
         const fi = new Image(); fi.crossOrigin = 'anonymous';
-        fi.onload = () => { ec.drawImage(fi, 0, 0, SIZE, SIZE); resolve(exp.toDataURL('image/png')); };
-        fi.onerror = () => resolve(exp.toDataURL('image/png'));
+        fi.onload = () => {
+          ec.drawImage(fi, 0, 0, SIZE, SIZE);
+          ec.restore();
+          resolve(exp.toDataURL('image/png'));
+        };
+        fi.onerror = () => { ec.restore(); resolve(exp.toDataURL('image/png')); };
         fi.src = 'haya-frame.svg?v=' + Date.now();
       });
     }
