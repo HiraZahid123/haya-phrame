@@ -2326,6 +2326,7 @@
     let userImage = null;
     let camStream = null;
     let pngLoaded = false;
+    let lastInputMethod = 'gallery'; // 'camera' or 'gallery'
 
     /* ── Platform helpers ── */
     function isIOS() {
@@ -2419,6 +2420,7 @@
     /* ════════════════ FILE UPLOAD ════════════════ */
     fileInput.addEventListener('change', function () {
       const file = this.files[0]; if (!file) return;
+      lastInputMethod = 'gallery';
       const reader = new FileReader();
       reader.onload = e => showImage(e.target.result);
       reader.readAsDataURL(file);
@@ -2533,6 +2535,17 @@
       const rs = document.getElementById('resultScreen');
       rs.classList.add('active');
       rs.scrollTop = 0;
+
+      // update retake button label based on how image was captured
+      const retakeBtn = rs.querySelector('.result-btn-outline');
+      if (retakeBtn) {
+        if (lastInputMethod === 'camera') {
+          retakeBtn.innerHTML = '<i class="fas fa-camera" style="margin-left:8px;"></i> إعادة التقاط';
+        } else {
+          retakeBtn.innerHTML = '<i class="fas fa-sync-alt" style="margin-left:8px;"></i> تغيير الصورة';
+        }
+      }
+
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           const wrapper = document.getElementById('resultFrameWrapper');
@@ -2544,7 +2557,11 @@
 
     function tryAnotherPhoto() {
       document.getElementById('resultScreen').classList.remove('active');
-      openGalleryModal();
+      if (lastInputMethod === 'camera') {
+        openCameraModal();
+      } else {
+        openGalleryModal();
+      }
     }
 
     async function downloadResultPhoto() {
@@ -2668,6 +2685,7 @@
       if (currentFacing === 'user') { tc.translate(side, 0); tc.scale(-1, 1); }
       tc.drawImage(webcamVideo, sx, sy, side, side, 0, 0, side, side);
       const src = tmp.toDataURL('image/png');
+      lastInputMethod = 'camera';
       closeWebcam();
       // show result screen with captured photo
       const img = new Image();
