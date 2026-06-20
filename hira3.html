@@ -250,7 +250,7 @@
       height: 100%;
       pointer-events: none;
       z-index: 3;
-      object-fit: contain;
+      object-fit: fill;
       opacity: 0;
       transition: opacity .4s ease;
     }
@@ -416,10 +416,6 @@
       line-height: 1.45;
     }
 
-    /* Hidden arrow for JS compatibility */
-    #applyFrameArrow {
-      display: none;
-    }
 
     /* ─── DOWNLOAD BUTTON ─── */
     .btn-download {
@@ -1579,10 +1575,9 @@
       transform: translateZ(0) !important;
     }
 
-    /* photo thoda andar, frame bahar tak */
     .photo-bg {
       position: absolute !important;
-      inset: 6px !important;
+      inset: 0 !important;
       border-radius: 50% !important;
       overflow: hidden !important;
       z-index: 1 !important;
@@ -1632,7 +1627,7 @@
       inset: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      object-fit: contain !important;
+      object-fit: fill !important;
       z-index: 3 !important;
       opacity: 0;
       pointer-events: none !important;
@@ -2082,9 +2077,9 @@
                   </svg>
                 </div>
               </div>
-              <img id="framePng" class="frame-img-overlay frame-active" src="frame.svg" crossorigin="anonymous"
+              <img id="framePng" class="frame-img-overlay frame-active" src="haya-frame.svg" crossorigin="anonymous"
                 alt="إطار حيا" onload="pngLoaded=true;"
-                onerror="pngLoaded=false; console.warn('frame.svg not found.');" />
+                onerror="pngLoaded=false; console.warn('haya-frame.svg not found.');" />
             </div>
           </div>
 
@@ -2108,15 +2103,6 @@
                 <div class="card-sub">استخدم الكاميرا للالتقاط</div>
               </div>
 
-              <div class="action-card" id="applyFrameBtn" onclick="toggleFrame()">
-                <div class="icon-circle ic-gold">
-                  <img src="makrs.png" alt="frame">
-                  <span id="applyFrameIcon" style="display:none;">✨</span>
-                </div>
-                <div class="card-label" id="applyFrameLabel">تطبيق الإطار</div>
-                <div class="card-sub" id="applyFrameSub">أضف إطار لدعم العراق</div>
-                <span id="applyFrameArrow" style="display:none;"></span>
-              </div>
 
             </div>
 
@@ -2206,7 +2192,7 @@
               <div class="photo-bg">
                 <canvas id="resultCanvas"></canvas>
               </div>
-              <img class="frame-img-overlay" src="frame.svg" alt="frame">
+              <img class="frame-img-overlay" src="haya-frame.svg" alt="frame">
             </div>
           </div>
 
@@ -2335,13 +2321,12 @@
     const webcamModal = document.getElementById('webcamModal');
     const webcamVideo = document.getElementById('webcamVideo');
     const framePng = document.getElementById('framePng');
-    const applyBtn = document.getElementById('applyFrameBtn');
     const downloadBtn = document.getElementById('downloadBtn');
 
     let userImage = null;
     let camStream = null;
     let pngLoaded = false;
-    let frameApplied = true;   // frame by default on hai
+    const frameApplied = true;
     let lastDataUrl = null;
 
     /* ── Default share message ── */
@@ -2379,9 +2364,8 @@
         userImage = img;
         placeholder.style.display = 'none';
         resizeCanvas();
-        frameApplied = false;
         framePng.classList.remove('frame-active');
-        updateApplyBtn(); updateDownloadBtn();
+        updateDownloadBtn();
         lastDataUrl = null;
         document.getElementById('shareRowWrap').style.display = 'none';
         toast('✅ تم تحميل الصورة! اضغط "تطبيق الإطار" ثم "تحميل الصورة".');
@@ -2390,25 +2374,11 @@
       img.src = src;
     }
 
-    /* ════════════════ FRAME TOGGLE ════════════════ */
-    function toggleFrame() {
-      if (!userImage) { toast('📸 الرجاء رفع أو التقاط صورة أولاً!'); return; }
-      frameApplied = !frameApplied;
-      framePng.classList.toggle('frame-active', frameApplied);
-      toast(frameApplied ? '🌿 تم تطبيق الإطار! جاهز للتحميل.' : 'تم إزالة الإطار.');
-      updateApplyBtn(); updateDownloadBtn();
-    }
-
-    function updateApplyBtn() {
-      document.getElementById('applyFrameLabel').textContent = frameApplied ? 'تم التطبيق ✓' : 'تطبيق الإطار';
-      document.getElementById('applyFrameSub').textContent = frameApplied ? 'انقر للإزالة' : 'أضف إطار لدعم العراق';
-      applyBtn.classList.toggle('applied', frameApplied);
-    }
 
     function updateDownloadBtn() {
       const sub = document.getElementById('downloadBtnSub');
       if (!userImage) { downloadBtn.disabled = true; sub.textContent = 'ارفع صورة أولاً للتحميل'; }
-      else { downloadBtn.disabled = false; sub.textContent = frameApplied ? 'احفظ صورتك مع إطار الدعم للعراق' : 'تحميل الصورة (ينصح بتطبيق الإطار أولاً)'; }
+      else { downloadBtn.disabled = false; sub.textContent = 'احفظ صورتك مع إطار الدعم للعراق'; }
     }
 
     /* ════════════════ FILE UPLOAD ════════════════ */
@@ -2484,9 +2454,8 @@
         userImage = img;
         placeholder.style.display = 'none';
         resizeCanvas();
-        frameApplied = true;
         framePng.classList.add('frame-active');
-        updateApplyBtn(); updateDownloadBtn();
+        updateDownloadBtn();
         lastDataUrl = null;
         showResultScreen();
       };
@@ -2495,60 +2464,34 @@
     }
 
     /* ════════════════ RESULT SCREEN ════════════════ */
-    // Pre-process frame: remove semi-transparent gray center → real transparent hole
-    function buildFrameCanvas(srcImg, size) {
-      const off = document.createElement('canvas');
-      off.width = size; off.height = size;
-      const oc = off.getContext('2d');
-      oc.drawImage(srcImg, 0, 0, size, size);
-      const imgData = oc.getImageData(0, 0, size, size);
-      const d = imgData.data;
-      for (let i = 0; i < d.length; i += 4) {
-        const r = d[i], g = d[i + 1], b = d[i + 2], a = d[i + 3];
-        // gray/white semi-transparent center pixels → fully transparent
-        if (a < 220 && Math.abs(r - g) < 30 && Math.abs(g - b) < 30 && r > 80) {
-          d[i + 3] = 0;
-        }
-      }
-      oc.putImageData(imgData, 0, 0);
-      return off;
-    }
-
     function renderResultCanvas(size) {
       const rc = document.getElementById('resultCanvas');
       rc.width = size; rc.height = size;
       const ctx = rc.getContext('2d');
       ctx.clearRect(0, 0, size, size);
 
-      // strict circular clip — nothing outside the circle
+      // clip to circle
       ctx.save();
       ctx.beginPath();
       ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
       ctx.clip();
 
-      // draw photo inside the inner ring area (clipped to inner circle)
-      const photoSize = size * 0.84;
+      // draw photo to fill full circle (cover)
       const iw = userImage.naturalWidth || 640;
       const ih = userImage.naturalHeight || 480;
-      const sc = Math.max(photoSize / iw, photoSize / ih);
+      const sc = Math.max(size / iw, size / ih);
       const dw = iw * sc, dh = ih * sc;
-      
-      ctx.save();
-      ctx.beginPath();
-      ctx.arc(size / 2, size / 2, photoSize / 2, 0, Math.PI * 2);
-      ctx.clip();
       ctx.drawImage(userImage, (size - dw) / 2, (size - dh) / 2, dw, dh);
-      ctx.restore();
 
-      // draw frame on top — also clipped to circle
+      // draw frame on top at full size
       const fi = new Image();
+      fi.crossOrigin = 'anonymous';
       fi.onload = () => {
-        const processedFrame = buildFrameCanvas(fi, size);
-        ctx.drawImage(processedFrame, 0, 0, size, size);
+        ctx.drawImage(fi, 0, 0, size, size);
         ctx.restore();
       };
       fi.onerror = () => { ctx.restore(); };
-      fi.src = 'frame.svg';
+      fi.src = 'haya-frame.svg';
     }
 
     function showResultScreen() {
@@ -2577,34 +2520,27 @@
       exp.width = SIZE; exp.height = SIZE;
       const ec = exp.getContext('2d');
 
-      // clip entire output to circle
+      // clip to circle
       ec.save();
       ec.beginPath();
       ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
       ec.clip();
 
-      // draw photo scaled to inner ring (78% of total size, clipped to inner circle)
-      const photoSize = SIZE * 0.84;
+      // draw photo to fill full circle (cover)
       const iw = userImage.naturalWidth || 640;
       const ih = userImage.naturalHeight || 480;
-      const sc = Math.max(photoSize / iw, photoSize / ih);
+      const sc = Math.max(SIZE / iw, SIZE / ih);
       const dw = iw * sc, dh = ih * sc;
-      
-      ec.save();
-      ec.beginPath();
-      ec.arc(SIZE / 2, SIZE / 2, photoSize / 2, 0, Math.PI * 2);
-      ec.clip();
       ec.drawImage(userImage, (SIZE - dw) / 2, (SIZE - dh) / 2, dw, dh);
-      ec.restore();
 
-      // load frame → strip gray center → draw vivid ring on top
+      // draw frame on top at full size
       const fi = new Image();
+      fi.crossOrigin = 'anonymous';
       fi.onload = () => {
-        const processedFrame = buildFrameCanvas(fi, SIZE);
-        ec.drawImage(processedFrame, 0, 0);
+        ec.drawImage(fi, 0, 0, SIZE, SIZE);
         ec.restore();
         const a = document.createElement('a');
-        a.download = 'iraq-support-profile.png';
+        a.download = 'haya-frame-photo.png';
         a.href = exp.toDataURL('image/png');
         a.click();
         toast('⬇️ تم التحميل بنجاح!');
@@ -2612,12 +2548,12 @@
       fi.onerror = () => {
         ec.restore();
         const a = document.createElement('a');
-        a.download = 'iraq-support-profile.png';
+        a.download = 'haya-frame-photo.png';
         a.href = exp.toDataURL('image/png');
         a.click();
         toast('⬇️ تم التحميل!');
       };
-      fi.src = 'frame.svg';
+      fi.src = 'haya-frame.svg';
     }
 
     function shareResultWa(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على واتساب.'); }
@@ -2691,9 +2627,9 @@
       img.onload = () => {
         userImage = img;
         placeholder.style.display = 'none';
-        resizeCanvas(); frameApplied = true;
+        resizeCanvas();
         framePng.classList.add('frame-active');
-        updateApplyBtn(); updateDownloadBtn();
+        updateDownloadBtn();
         lastDataUrl = null;
         showResultScreen();
       };
@@ -2733,7 +2669,7 @@
         const fi = new Image(); fi.crossOrigin = 'anonymous';
         fi.onload = () => { ec.drawImage(fi, 0, 0, SIZE, SIZE); resolve(exp.toDataURL('image/png')); };
         fi.onerror = () => resolve(exp.toDataURL('image/png'));
-        fi.src = 'frame.svg?v=' + Date.now();
+        fi.src = 'haya-frame.svg?v=' + Date.now();
       });
     }
 
