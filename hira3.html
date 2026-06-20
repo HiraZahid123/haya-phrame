@@ -2326,6 +2326,41 @@
     let userImage = null;
     let camStream = null;
     let pngLoaded = false;
+
+    /* ── Platform helpers ── */
+    function isIOS() {
+      return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+    async function downloadImageBlob(blob, filename) {
+      if (isIOS()) {
+        const file = new File([blob], filename, { type: 'image/png' });
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({ files: [file], title: 'صورتك مع إطار حيا' });
+            toast('اختر "حفظ الصورة" لحفظها في الصور 📸');
+          } catch (e) {
+            if (e.name !== 'AbortError') {
+              toast('💡 افتح تطبيق الملفات واحفظ الصورة في الصور يدوياً');
+            }
+          }
+        } else {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url; a.download = filename;
+          document.body.appendChild(a); a.click(); document.body.removeChild(a);
+          setTimeout(() => URL.revokeObjectURL(url), 1000);
+          toast('💡 الصورة تُحفظ في الملفات على iPhone — افتح الملفات واحفظها في الصور');
+        }
+      } else {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = filename;
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 2000);
+        toast('⬇️ تم التحميل في الصور بنجاح!');
+      }
+    }
     const frameApplied = true;
     let lastDataUrl = null;
 
@@ -2520,38 +2555,27 @@
       exp.width = SIZE; exp.height = SIZE;
       const ec = exp.getContext('2d');
 
-      // clip to circle
       ec.save();
       ec.beginPath();
       ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
       ec.clip();
 
-      // draw photo to fill full circle (cover)
       const iw = userImage.naturalWidth || 640;
       const ih = userImage.naturalHeight || 480;
       const sc = Math.max(SIZE / iw, SIZE / ih);
       const dw = iw * sc, dh = ih * sc;
       ec.drawImage(userImage, (SIZE - dw) / 2, (SIZE - dh) / 2, dw, dh);
 
-      // draw frame on top at full size
       const fi = new Image();
       fi.crossOrigin = 'anonymous';
       fi.onload = () => {
         ec.drawImage(fi, 0, 0, SIZE, SIZE);
         ec.restore();
-        const a = document.createElement('a');
-        a.download = 'haya-frame-photo.png';
-        a.href = exp.toDataURL('image/png');
-        a.click();
-        toast('⬇️ تم التحميل بنجاح!');
+        exp.toBlob(blob => downloadImageBlob(blob, 'haya-frame-photo.png'), 'image/png');
       };
       fi.onerror = () => {
         ec.restore();
-        const a = document.createElement('a');
-        a.download = 'haya-frame-photo.png';
-        a.href = exp.toDataURL('image/png');
-        a.click();
-        toast('⬇️ تم التحميل!');
+        exp.toBlob(blob => downloadImageBlob(blob, 'haya-frame-photo.png'), 'image/png');
       };
       fi.src = 'haya-frame.svg';
     }
@@ -2680,10 +2704,11 @@
       try {
         const dataUrl = await buildExportCanvas();
         lastDataUrl = dataUrl;
-        const a = document.createElement('a'); a.download = 'iraq-support-profile.png'; a.href = dataUrl; a.click();
-        toast('⬇️ تم التحميل! الآن اضغط "شارك صورتك".');
         document.getElementById('shareRowWrap').style.display = 'block';
         setSharePreview(dataUrl);
+        const res = await fetch(dataUrl);
+        const blob = await res.blob();
+        await downloadImageBlob(blob, 'iraq-support-profile.png');
       } catch (e) { toast('❌ حدث خطأ. يرجى المحاولة مرة أخرى.'); }
     }
 
