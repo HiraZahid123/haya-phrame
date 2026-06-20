@@ -2582,7 +2582,30 @@
 
     function shareResultWa(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على واتساب.'); }
     function shareResultIg(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم ارفعها على انستغرام.'); }
-    function shareResultFb(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على فيسبوك.'); }
+    async function shareResultFb(e) {
+      e.preventDefault();
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile && navigator.share && lastDataUrl) {
+        try {
+          const blob = dataURLtoBlob(lastDataUrl);
+          const file = new File([blob], 'iraq-support-haya.png', { type: 'image/png' });
+          const payload = { files: [file], title: '🌿 دعم العراق – صيدلية حيا ⚽' };
+          if (navigator.canShare && navigator.canShare(payload)) {
+            await navigator.share(payload);
+            toast('📘 اختر فيسبوك من القائمة لنشر الصورة على الفيد!');
+          } else {
+            toast('💡 حمّل الصورة أولاً ثم ارفعها على فيسبوك');
+          }
+        } catch (err) {
+          if (err.name !== 'AbortError') toast('تعذرت المشاركة.');
+        }
+      } else if (isMobile) {
+        toast('💡 حمّل الصورة أولاً ثم شاركها على فيسبوك');
+      } else {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+        toast('💡 لمشاركة الصورة: حمّل الصورة أولاً ثم ارفعها يدوياً على فيسبوك');
+      }
+    }
 
     /* ════════════════ CAMERA PERMISSION MODAL ════════════════ */
     function openCameraModal() {
@@ -2814,10 +2837,33 @@
       window.open('https://wa.me/?text=' + encodeURIComponent(getShareMsg()), '_blank');
       toast('💬 تم فتح واتساب مع رسالتك!');
     }
-    function shareFacebook(e) {
+    async function shareFacebook(e) {
       e.preventDefault();
-      window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
-      toast('📘 تم فتح فيسبوك!');
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      if (isMobile && navigator.share) {
+        if (!lastDataUrl) {
+          toast('⏳ جاري تجهيز الصورة…');
+          try { lastDataUrl = await buildExportCanvas(); setSharePreview(lastDataUrl); }
+          catch (err) { toast('❌ تعذر تجهيز الصورة.'); return; }
+        }
+        try {
+          const blob = dataURLtoBlob(lastDataUrl);
+          const file = new File([blob], 'iraq-support-haya.png', { type: 'image/png' });
+          const payload = { files: [file], title: '🌿 دعم العراق – صيدلية حيا ⚽' };
+          if (navigator.canShare && navigator.canShare(payload)) {
+            await navigator.share(payload);
+            toast('📘 اختر فيسبوك من القائمة لنشر الصورة على الفيد!');
+          } else {
+            window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank');
+            toast('📘 تم فتح فيسبوك!');
+          }
+        } catch (err) {
+          if (err.name !== 'AbortError') toast('تعذرت المشاركة.');
+        }
+      } else {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href), '_blank', 'width=600,height=400');
+        toast('💡 لمشاركة الصورة على فيسبوك: حمّل الصورة أولاً ثم ارفعها يدوياً');
+      }
     }
     function shareInstagram(e) {
       e.preventDefault();
