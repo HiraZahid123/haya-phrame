@@ -173,7 +173,7 @@
     .photo-bg {
       position: absolute;
       inset: 0;
-      border-radius: 50%;
+      border-radius: 0;
       overflow: hidden;
       z-index: 1;
       background: #dde3ea;
@@ -184,7 +184,7 @@
       width: 100%;
       height: 100%;
       display: block;
-      border-radius: 50%;
+      border-radius: 0;
     }
 
     /* Dummy user silhouette */
@@ -196,7 +196,7 @@
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      border-radius: 50%;
+      border-radius: 0;
       background: linear-gradient(160deg, #e4eaf0 55%, #ccd6e0 100%);
       gap: 0;
       overflow: hidden;
@@ -1006,7 +1006,7 @@
     .cam-circle {
       width: 240px;
       height: 240px;
-      border-radius: 50%;
+      border-radius: 0;
       overflow: hidden;
       position: relative;
       background: #222;
@@ -1570,7 +1570,7 @@
       height: 270px !important;
       max-width: unset !important;
       margin: 0 auto !important;
-      border-radius: 50% !important;
+      border-radius: 0 !important;
       overflow: hidden !important;
       transform: translateZ(0) !important;
     }
@@ -1578,7 +1578,7 @@
     .photo-bg {
       position: absolute !important;
       inset: 0 !important;
-      border-radius: 50% !important;
+      border-radius: 0 !important;
       overflow: hidden !important;
       z-index: 1 !important;
       background: transparent !important;
@@ -1589,13 +1589,13 @@
       inset: 0 !important;
       width: 100% !important;
       height: 100% !important;
-      border-radius: 50% !important;
+      border-radius: 0 !important;
     }
 
     .photo-placeholder {
       position: absolute !important;
       inset: 0 !important;
-      border-radius: 50% !important;
+      border-radius: 0 !important;
       overflow: hidden !important;
       cursor: pointer !important;
       display: flex !important;
@@ -1682,7 +1682,7 @@
       .frame-wrapper {
         width: 260px !important;
         height: 260px !important;
-        border-radius: 50% !important;
+        border-radius: 0 !important;
         overflow: hidden !important;
         transform: translateZ(0) !important;
       }
@@ -1733,7 +1733,7 @@
       .frame-wrapper {
         width: 230px !important;
         height: 230px !important;
-        border-radius: 50% !important;
+        border-radius: 0 !important;
         overflow: hidden !important;
         transform: translateZ(0) !important;
       }
@@ -1844,7 +1844,7 @@
       position: relative;
       margin: 0 auto;
       flex-shrink: 0;
-      border-radius: 50% !important;
+      border-radius: 0 !important;
       overflow: hidden !important;
       transform: translateZ(0) !important;
     }
@@ -2072,12 +2072,12 @@
               <div class="photo-bg" id="photoBg">
                 <canvas id="previewCanvas"></canvas>
                 <div class="photo-placeholder" id="placeholder" onclick="document.getElementById('fileInput').click()">
-                  <img src="dummy.png" alt="dummy" class="dummy-svg" style="object-fit:cover;width:100%;height:100%;border-radius:50%;">
+                  <img src="dummy.png" alt="dummy" class="dummy-svg" style="object-fit:cover;width:100%;height:100%;border-radius:0;transform:scale(1.25);">
                 </div>
               </div>
-              <img id="framePng" class="frame-img-overlay frame-active" src="hayyyaa-frame.svg" crossorigin="anonymous"
+              <img id="framePng" class="frame-img-overlay frame-active" src="square-frame.png" crossorigin="anonymous"
                 alt="إطار حيا" onload="pngLoaded=true;"
-                onerror="pngLoaded=false; console.warn('hayyyaa-frame.svg not found.');" />
+                onerror="pngLoaded=false; console.warn('square-frame.png not found.');" />
             </div>
           </div>
 
@@ -2190,7 +2190,7 @@
               <div class="photo-bg">
                 <canvas id="resultCanvas"></canvas>
               </div>
-              <img class="frame-img-overlay" src="hayyyaa-frame.svg" alt="frame">
+              <img class="frame-img-overlay" src="square-frame.png" alt="frame">
             </div>
           </div>
 
@@ -2507,9 +2507,9 @@
 
       // clip to circle
       ctx.save();
-      ctx.beginPath();
-      ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-      ctx.clip();
+      // ctx.beginPath();
+      // ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+      // ctx.clip();
 
       // draw photo to fill full circle (cover)
       const iw = userImage.naturalWidth || 640;
@@ -2526,7 +2526,7 @@
         ctx.restore();
       };
       fi.onerror = () => { ctx.restore(); };
-      fi.src = 'hayyyaa-frame.svg';
+      fi.src = 'square-frame.png';
     }
 
     function showResultScreen() {
@@ -2571,9 +2571,9 @@
       const ec = exp.getContext('2d');
 
       ec.save();
-      ec.beginPath();
-      ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
-      ec.clip();
+      // ec.beginPath();
+      // ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+      // ec.clip();
 
       const iw = userImage.naturalWidth || 640;
       const ih = userImage.naturalHeight || 480;
@@ -2592,7 +2592,7 @@
         ec.restore();
         exp.toBlob(blob => downloadImageBlob(blob, 'haya-frame-photo.png'), 'image/png');
       };
-      fi.src = 'hayyyaa-frame.svg';
+      fi.src = 'square-frame.png';
     }
 
     function shareResultWa(e) { e.preventDefault(); toast('📸 قم بتحميل الصورة أولاً ثم شاركها على واتساب.'); }
@@ -2719,9 +2719,9 @@
 
         // clip to full circle
         ec.save();
-        ec.beginPath();
-        ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
-        ec.clip();
+        // ec.beginPath();
+        // ec.arc(SIZE / 2, SIZE / 2, SIZE / 2, 0, Math.PI * 2);
+        // ec.clip();
 
         // draw photo to fill full circle (cover) — same as result section
         const iw = userImage.naturalWidth || userImage.width || 640;
@@ -2738,7 +2738,7 @@
           resolve(exp.toDataURL('image/png'));
         };
         fi.onerror = () => { ec.restore(); resolve(exp.toDataURL('image/png')); };
-        fi.src = 'hayyyaa-frame.svg?v=' + Date.now();
+        fi.src = 'square-frame.png?v=' + Date.now();
       });
     }
 
